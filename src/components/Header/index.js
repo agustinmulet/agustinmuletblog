@@ -44,6 +44,9 @@ const TextWrapper = styled.div`
   )};
   z-index: 2;
   display: flex;
+  .cursor {
+    color: #FFF;
+  }
 `;
 
 const MainNav = styled.nav`
@@ -83,7 +86,10 @@ const p = ['Desarrollador', 'Frontend', 'Backend', 'Fullstack', 'Javascript', 'A
 
 const Palabras = () => {
   return (
-    <Typing loop={true}>
+    <Typing 
+      loop={true} 
+      cursorClassName="cursor"
+    >
       <Typing.Reset count={1}/>
       {p.map(palabra => {
         return (
@@ -172,7 +178,7 @@ export default class Header extends Component {
       <TextWrapper
         isHome={location.pathname === '/'} 
       >
-      <Palabras className="palabras" />
+      <Palabras />
       </TextWrapper>
       <Img 
         style={{
