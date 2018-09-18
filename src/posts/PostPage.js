@@ -31,12 +31,24 @@ const Linkito = styled.div`
 `;
 
 export default class PostPage extends Component {
+    constructor() {
+        super();
+        this.state = {
+            url: '',
+        }
+    }
+    
+    componentDidMount() {
+        let url = this.state.url;
+        url = window.location;
+        this.setState({url});
+    }
+
     render() {
         const { data } = this.props;
         const { title, date, tags } = data.markdownRemark.frontmatter;
-        const url = window.location;
         const disqusConfig = {
-            url: `${url.origin}${data.markdownRemark.fields.slug}`,
+            url: `${this.state.url.origin}${data.markdownRemark.fields.slug}`,
             identifier: `${data.markdownRemark.fields.slug}`,
             title: title,
         }
