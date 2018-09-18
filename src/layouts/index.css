@@ -627,3 +627,7 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+.palabras {
+  caret-color: white;
+}

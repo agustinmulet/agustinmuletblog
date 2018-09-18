@@ -172,7 +172,7 @@ export default class Header extends Component {
       <TextWrapper
         isHome={location.pathname === '/'} 
       >
-      <Palabras />
+      <Palabras className="palabras" />
       </TextWrapper>
       <Img 
         style={{
