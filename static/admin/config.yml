@@ -15,4 +15,4 @@ collections:
       - { name: date, label: Created At, widget: date }
       - { name: tags, label: Tags, widget: list }
       - { name: body, label: Post, widget: markdown }
-      - { name: image, label: Image, widget: image }
+      - { name: image, label: Image, widget: image, required: false }
