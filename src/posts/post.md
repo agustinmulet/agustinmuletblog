@@ -3,7 +3,7 @@ title: Bienvenidos a mi blog
 date: '2018-09-20'
 tags:
   - bienvenida
-  - probando
+image: /assets/ddb.jpg
 ---
 Hola, bienvenidos a este blog, voy a estar escribiendo artículos en español y cuando me anime voy a estar escribiéndolos en inglés también, dando la posibilidad al lector de seleccionar el idioma en la parte superior.
 
@@ -13,4 +13,4 @@ Además voy a estar compartiendo recursos, ofertas, lo que encuentre de material
 
 Todavía no va a estar habilitado Disqus, pero cuando lo esté van a poder comentar preguntas, sugerencias o correcciones de lo que hayan visto en el post que esté mal, ya que obviamente tengo mis errores y cualquier corrección o crítica ayuda a mejorar 😄
 
-Update: Estoy testeando el cms de netlify que parece que logré hacerlo funcionar ;)
+Update: Esto fue editado desde el cms de netlify que luché pero logré hacerlo funcionar 💪
