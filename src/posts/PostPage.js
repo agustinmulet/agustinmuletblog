@@ -45,6 +45,7 @@ export default class PostPage extends Component {
     }
 
     render() {
+        if (!data) return null;
         const { data } = this.props;
         const { title, date, tags } = data.markdownRemark.frontmatter;
         const disqusConfig = {
