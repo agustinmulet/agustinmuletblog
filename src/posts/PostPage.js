@@ -50,7 +50,7 @@ export default class PostPage extends Component {
         if (!data) return null;
         const shortname = 'https-agustinmulet-netlify-com';
         const disqusConfig = {
-            url: `${this.state.url.origin}`,
+            url: `${this.state.url.origin}${data.markdownRemark.fields.slug}`,
             identifier: `${data.markdownRemark.fields.slug}`,
             title: title,
         }
