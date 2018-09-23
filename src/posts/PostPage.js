@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import Link from 'gatsby-link';
 import Tags from '../components/TagList/TagList';
-import Disqus from 'disqus-react'
+import Disqus from 'disqus-react';
 
 const Post = styled.div`
   text-align: justify;
@@ -48,8 +48,9 @@ export default class PostPage extends Component {
         const { data } = this.props;
         const { title, date, tags } = data.markdownRemark.frontmatter;
         if (!data) return null;
+        const shortname = 'https-agustinmulet-netlify-com';
         const disqusConfig = {
-            url: `${this.state.url.origin}${data.markdownRemark.fields.slug}`,
+            url: `${this.state.url.origin}`,
             identifier: `${data.markdownRemark.fields.slug}`,
             title: title,
         }
@@ -89,7 +90,7 @@ export default class PostPage extends Component {
                 </p>
                 <hr />
                 </div>
-                {/*<Disqus.DiscussionEmbed shortname="agus-mulet" config={disqusConfig} />*/}
+                <Disqus.DiscussionEmbed shortname={shortname} config={disqusConfig} />
             </div>
         );
     }
