@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import Header from '../components/Header';
 import './index.css';
 require("./prism-tomorrow.css");
+import icon from '../images/favicon.png';
 
 const Layout = ({ children, data, location }) => (
   <div>
@@ -12,6 +13,9 @@ const Layout = ({ children, data, location }) => (
       meta={[
         { name: 'description', content: 'Blog y CV de Agustin Mulet' },
         { name: 'keywords', content: 'programacion, programming, javascript, blog, js, react, angular, angularjs, php, mysql' },
+      ]}
+      link={[
+        { rel: 'shortcut icon', type: 'image/png', href: `${icon}` }
       ]}
     />
     <Header data={data} location={location} />
