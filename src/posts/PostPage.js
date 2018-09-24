@@ -54,7 +54,6 @@ export default class PostPage extends Component {
             identifier: `${data.markdownRemark.fields.slug}`,
             title: title,
         }
-        console.log(`${this.state.url.origin}${data.markdownRemark.fields.slug}`);
         return (
             <div style={{
                 margin: '0 auto',
