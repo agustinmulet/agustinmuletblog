@@ -13,6 +13,12 @@ const Layout = ({ children, data, location }) => (
       meta={[
         { name: 'description', content: 'Blog y CV de Agustin Mulet' },
         { name: 'keywords', content: 'programacion, programming, javascript, blog, js, react, angular, angularjs, php, mysql' },
+        {/* Twitter Card tags */},
+        { name: "twitter:card", content: "summary_large_image" },
+
+        { name: "twitter:title", content:"Blog de Agustin Mulet" },
+        { name: "twitter:description", content:"Programacion y cosas raras" },
+        { name: "twitter:image", content:{icon} }
       ]}
       link={[
         { rel: 'shortcut icon', type: 'image/png', href: `${icon}` }
