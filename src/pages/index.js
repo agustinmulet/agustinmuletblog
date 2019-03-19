@@ -1,37 +1,9 @@
-import React from 'react';
+import React from "react"
 
-const IndexPage = () => (
-  <div style={{ maxHeight: 0 }}></div>
+import SEO from "../components/seo"
+
+const IndexPage = props => (
+  <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
 )
 
 export default IndexPage
-
-export const query = graphql`
-  query SiteMeta  {
-    site {
-      siteMetadata {
-        title
-        desc
-      }
-    }
-    allMarkdownRemark(sort: {
-      fields: [frontmatter___date],
-      order: DESC
-    }) {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            date(formatString: "DD MMMM YYYY")
-          }
-          fields {
-            slug
-          }
-          html
-          excerpt
-        }
-      }
-    }
-  }
-`

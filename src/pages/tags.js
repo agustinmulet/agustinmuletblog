@@ -1,55 +1,32 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import MiniHeader from '../components/MiniHeader/MiniHeader';
-import Tags from '../components/TagList/TagList';
+import React from "react"
+import { graphql } from "gatsby"
+
+import TagList from "../components/taglist"
+import MiniHeader from "../components/miniheader"
+import SEO from "../components/seo"
 
 const TagsPage = ({
   data: {
     allMarkdownRemark: { group },
   },
-}) =>{
-  const tags = [];
-  for(let tag of group){
-    tags.push(tag.fieldValue);
+  location,
+}) => {
+  const tags = []
+  for (let tag of group) {
+    tags.push(tag.fieldValue)
   }
- return(
-  <div style={{
-    margin: '0 auto',
-    maxWidth: 960,
-    padding: '0px 1.0875rem 1.45rem',
-    paddingTop: 0,
-    marginTop: '1.45rem',
-  }}>
-    <div>
-        <MiniHeader 
-          principal='Etiquetas'
-          slug='posts'
-          link='Todos los posts'
-        />
-        <Tags tags={tags} scale={1} />
+  return (
+    <div className="wrapper">
+      <SEO title="Tags" />
+      <div>
+        <MiniHeader principal="Etiquetas" slug="blog" link="Todos los posts" />
+        <TagList tags={tags} scale={1} />
+      </div>
     </div>
-  </div>
-)
-};
+  )
+}
 
-TagsPage.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      group: PropTypes.arrayOf(
-        PropTypes.shape({
-          fieldValue: PropTypes.string.isRequired,
-        }).isRequired
-      ),
-    }),
-    site: PropTypes.shape({
-      siteMetadata: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-      }),
-    }),
-  }),
-};
-
-export default TagsPage;
+export default TagsPage
 
 export const pageQuery = graphql`
   query TagsQuery {
@@ -58,12 +35,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(
-      limit: 2000
-    ) {
+    allMarkdownRemark(limit: 2000) {
       group(field: frontmatter___tags) {
         fieldValue
       }
     }
   }
-`;
+`

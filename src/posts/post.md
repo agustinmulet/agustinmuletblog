@@ -1,10 +1,10 @@
 ---
 title: Bienvenidos a mi blog
-date: '2018-09-20'
+date: "2018-09-20"
 tags:
   - bienvenida
-image: /assets/ddb.jpg
 ---
+
 Hola, bienvenidos a este blog, voy a estar escribiendo artículos en español y cuando me anime voy a estar escribiéndolos en inglés también, dando la posibilidad al lector de seleccionar el idioma en la parte superior.
 
 Quise hacerme uno ya que de esta forma se me hace más fácil poder compartir conocimiento, explicar cosas con las que me fui trabando y quizás la explicación pueda servirle a otro para destrabarse si es que tuvo que pasar por lo mismo que yo. También pretendo que esto sea una colección de contenido curado para tener a mano cosas útiles.

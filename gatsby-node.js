@@ -1,81 +1,98 @@
-const path = require('path');
-const { createFilePath } = require('gatsby-source-filesystem');
-const _ = require('lodash');
+const path = require("path")
+const { createFilePath } = require("gatsby-source-filesystem")
+const _ = require("lodash")
+const createPaginatedPages = require("gatsby-paginate")
 
-exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
-    const { createNodeField } = boundActionCreators;
-    if (node.internal.type === 'MarkdownRemark') {
-        const slug = createFilePath({
-            node,
-            getNode,
-            basePath: 'posts'
-        });
-        createNodeField({
-            node,
-            name: 'slug',
-            value: `/posts${slug}`
-        });
-    }
-};
-
-exports.createPages = ({ graphql, boundActionCreators }) => {
-    const { createPage } = boundActionCreators;
-    return new Promise((resolve, reject) => {
-        graphql(`
-        {
-            allMarkdownRemark (
-                sort: { order: DESC, fields: [frontmatter___date] }
-                limit: 2000 
-            ) {
-                edges {
-                    node {
-                        frontmatter {
-                            tags
-                        }
-                        fields {
-                            slug
-                        }
-                    }
-                }
-            }
-        }
-        `).then(result => {
-            if (result.errors) {
-                return Promise.reject(result.errors);
-            }
-            const posts = result.data.allMarkdownRemark.edges;
-            posts.forEach(({ node }) => {
-                createPage({
-                    path: node.fields.slug,
-                    component: path.resolve('./src/posts/PostPage.js'),
-                    context: {
-                        slug: node.fields.slug,
-                    }
-                })
-            })
-
-            // Tag pages:
-            let tags = [];
-            // Iterate through each post, putting all found tags into `tags`
-            _.each(posts, edge => {
-            if (_.get(edge, "node.frontmatter.tags")) {
-                tags = tags.concat(edge.node.frontmatter.tags);
-            }
-            });
-            // Eliminate duplicate tags
-            tags = _.uniq(tags);
-
-            // Make tag pages
-            tags.forEach(tag => {
-                createPage({
-                    path: `/tags/${_.kebabCase(tag)}/`,
-                    component: path.resolve("src/tags/TagsPage.js"),
-                    context: {
-                        tag,
-                    },
-                });
-            })
-            resolve();
-        })
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
+  if (node.internal.type === "MarkdownRemark") {
+    const slug = createFilePath({
+      node,
+      getNode,
+      basePath: "posts",
     })
+    createNodeField({
+      node,
+      name: "slug",
+      value: `/posts${slug}`,
+    })
+  }
+}
+
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
+  return new Promise((resolve, reject) => {
+    graphql(`
+      {
+        allMarkdownRemark(
+          sort: { fields: [frontmatter___date], order: DESC }
+          limit: 2000
+        ) {
+          edges {
+            node {
+              id
+              frontmatter {
+                title
+                date(formatString: "DD MMMM YYYY", locale: "es")
+                tags
+              }
+              fields {
+                slug
+              }
+              html
+              excerpt
+            }
+          }
+        }
+      }
+    `).then(result => {
+      if (result.errors) {
+        return Promise.reject(result.errors)
+      }
+      const posts = result.data.allMarkdownRemark.edges
+
+      createPaginatedPages({
+        edges: posts,
+        createPage: createPage,
+        pageTemplate: "src/pages/blog.js",
+        pageLength: 2, // This is optional and defaults to 10 if not used
+        pathPrefix: "blog", // This is optional and defaults to an empty string if not used
+        buildPath: (index, pathPrefix) =>
+          index > 1 ? `${pathPrefix}/${index}` : `/${pathPrefix}`, // This is optional and this is the default
+      })
+
+      //Single post page:
+      posts.forEach(({ node }) => {
+        createPage({
+          path: node.fields.slug,
+          component: path.resolve("./src/components/postpage.js"),
+          context: {
+            slug: node.fields.slug,
+          },
+        })
+      })
+
+      // Tags page:
+      let tags = []
+      _.each(posts, edge => {
+        if (_.get(edge, "node.frontmatter.tags")) {
+          tags = tags.concat(edge.node.frontmatter.tags)
+        }
+      })
+      // Eliminar tags duplicados
+      tags = _.uniq(tags)
+
+      tags.forEach(tag => {
+        createPage({
+          path: `/tags/${_.kebabCase(tag)}/`,
+          component: path.resolve("src/components/tagspage.js"),
+          context: {
+            tag,
+          },
+        })
+      })
+
+      resolve()
+    })
+  })
 }
