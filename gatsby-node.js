@@ -1,10 +1,18 @@
 const path = require("path")
-const { createFilePath } = require("gatsby-source-filesystem")
+const {
+  createFilePath
+} = require("gatsby-source-filesystem")
 const _ = require("lodash")
 const createPaginatedPages = require("gatsby-paginate")
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions
+exports.onCreateNode = ({
+  node,
+  getNode,
+  actions
+}) => {
+  const {
+    createNodeField
+  } = actions
   if (node.internal.type === "MarkdownRemark") {
     const slug = createFilePath({
       node,
@@ -19,8 +27,13 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 }
 
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
+exports.createPages = ({
+  graphql,
+  actions
+}) => {
+  const {
+    createPage
+  } = actions
   return new Promise((resolve, reject) => {
     graphql(`
       {
@@ -49,20 +62,31 @@ exports.createPages = ({ graphql, actions }) => {
       if (result.errors) {
         return Promise.reject(result.errors)
       }
+
       const posts = result.data.allMarkdownRemark.edges
 
-      createPaginatedPages({
-        edges: posts,
-        createPage: createPage,
-        pageTemplate: "src/pages/blog.js",
-        pageLength: 2, // This is optional and defaults to 10 if not used
-        pathPrefix: "blog", // This is optional and defaults to an empty string if not used
-        buildPath: (index, pathPrefix) =>
-          index > 1 ? `${pathPrefix}/${index}` : `/${pathPrefix}`, // This is optional and this is the default
+      // Create blog-list pages
+      const postsPerPage = 5
+      const numPages = Math.ceil(posts.length / postsPerPage)
+      Array.from({
+        length: numPages
+      }).forEach((_, i) => {
+        createPage({
+          path: i === 0 ? `/blog` : `/blog/${i + 1}`,
+          component: path.resolve("./src/pages/blog.js"),
+          context: {
+            limit: postsPerPage,
+            skip: i * postsPerPage,
+            numPages,
+            currentPage: i + 1
+          },
+        })
       })
 
       //Single post page:
-      posts.forEach(({ node }) => {
+      posts.forEach(({
+        node
+      }) => {
         createPage({
           path: node.fields.slug,
           component: path.resolve("./src/components/postpage.js"),

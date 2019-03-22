@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { graphql } from "gatsby"
 
 import PostListing from "../components/postlisting"
@@ -24,26 +23,6 @@ const Tags = ({ pageContext, data, location }) => {
       ))}
     </div>
   )
-}
-
-Tags.propTypes = {
-  pageContext: PropTypes.shape({
-    tag: PropTypes.string.isRequired,
-  }),
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      totalCount: PropTypes.number.isRequired,
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            frontmatter: PropTypes.shape({
-              title: PropTypes.string.isRequired,
-            }),
-          }),
-        }).isRequired
-      ),
-    }),
-  }),
 }
 
 export default Tags

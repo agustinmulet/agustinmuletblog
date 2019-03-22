@@ -112,7 +112,6 @@ class Header extends React.Component {
       }
     }
   }
-  //const Header = ({ pathname, headerTitle, background }) => (
   render() {
     const { pathname, headerTitle, background } = this.props
     return (
@@ -178,7 +177,7 @@ class Header extends React.Component {
             top: 0,
             width: "100%",
             height: "100%",
-            opacity: 0.85,
+            opacity: pathname === "/" ? "0.75" : "0.25",
           }}
           fluid={background.childImageSharp.fluid}
         />
