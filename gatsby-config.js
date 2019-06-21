@@ -41,13 +41,6 @@ module.exports = {
     `gatsby-plugin-offline`,
     `gatsby-plugin-netlify-cms`,
     {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: 'UA-136531909-1',
-        head: false,
-      },
-    },
-    {
       resolve: `gatsby-transformer-remark`,
       options: {
         "excerpt_separator": `<!-- end -->`,
@@ -73,7 +66,7 @@ module.exports = {
             // setting this to '{ sh: "bash" }' will let you use
             // the language "sh" which will highlight using the
             // bash highlighter.
-            aliases: {},
+            aliases: { sh: "bash" },
           },
         }],
       }

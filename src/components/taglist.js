@@ -4,33 +4,9 @@ import { Link } from "gatsby"
 import kebabCase from "lodash/kebabCase"
 
 const TagListWrapper = styled.div`
-  width: auto;
   ul {
     transform: ${({ scale }) =>
       scale ? "scale(" + scale + ")" : "scale(0.7)"};
-    transform-origin: left;
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    li {
-      transition: all 0.3s ease-in-out;
-      display: inline-block;
-      font-family: Sanchez, serif;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 0px 8px;
-      padding-top: 1px;
-      margin: 5px 15px 0 0;
-      background-color: #000;
-      a {
-        text-decoration: none;
-        text-transform: uppercase;
-        color: #fff;
-      }
-    }
-    li: hover {
-      transform: scale(1.3);
-    }
   }
 `
 
@@ -42,7 +18,7 @@ const Titulo = props => {
 }
 
 const TagList = props => (
-  <TagListWrapper scale={props.scale}>
+  <TagListWrapper scale={props.scale} className="tags">
     <Titulo titulo={props.titulo} />
     <ul>
       {props.tags.map((tag, index) => (

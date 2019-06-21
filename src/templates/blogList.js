@@ -13,14 +13,13 @@ const NavLink = props => {
   }
 }
 
-const Blog = ({ pageContext, data }) => {
-  const { currentPage, numPages } = pageContext
+const Blog = ({ pageContext: { currentPage, numPages }, data }) => {
   const isFirst = currentPage === 1
   const isLast = currentPage === numPages
   const prevPage = currentPage - 1 === 1 ? "/" : (currentPage - 1).toString()
   const nextPage = (currentPage + 1).toString()
   return (
-    <div className="wrapper">
+    <div className="wrapper bloglist">
       <SEO title="Blog" />
       <MiniHeader
         className="MiniHeader"
@@ -28,25 +27,26 @@ const Blog = ({ pageContext, data }) => {
         slug="tags"
         link="Todas las etiquetas"
       />
+      <div className="postlist">
+        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <PostListing key={node.id} post={node} />
+        ))}
+      </div>
 
-      {data.allMarkdownRemark.edges.map(({ node }) => (
-        <PostListing key={node.id} post={node} />
-      ))}
-
-      <footer className="foot">
+      <footer className="blogfooter">
         <div className="previousLink">
           <NavLink
             test={isFirst}
             url={`/blog/${prevPage}`}
-            text="Página anterior"
+            text="<<"
           />
         </div>
-        Total {numPages} página(s)
+        <p> Total {numPages} página(s) </p>
         <div className="nextLink">
           <NavLink
             test={isLast}
             url={`/blog/${nextPage}`}
-            text="Página siguiente"
+            text=">>"
           />
         </div>
       </footer>

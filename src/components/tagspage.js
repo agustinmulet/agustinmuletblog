@@ -4,15 +4,16 @@ import { graphql } from "gatsby"
 import PostListing from "../components/postlisting"
 import MiniHeader from "../components/miniheader"
 
-const Tags = ({ pageContext, data, location }) => {
-  const { tag } = pageContext
-  const { edges, totalCount } = data.allMarkdownRemark
+const Tags = ({ 
+  pageContext: { tag }, 
+  data: {allMarkdownRemark: { edges, totalCount }}
+}) => {
   const tagHeader = `${totalCount} post${
     totalCount === 1 ? "" : "s"
   } con la etiqueta "${tag}"`
 
   return (
-    <div className="wrapper">
+    <div className="wrapper bloglist">
       <MiniHeader
         principal={tagHeader}
         slug="tags"

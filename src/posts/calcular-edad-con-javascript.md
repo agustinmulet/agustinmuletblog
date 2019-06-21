@@ -7,7 +7,7 @@ tags:
 ---
 
 Bueno, para arrancar posteando una problemática no tan compleja y tratar de agarrarle la mano a esto del blog, vamos a ver cómo calcular una edad con una función escrita en Javascript. Quizás le sirve a alguien más cuando se lo pidan para algún TP de la facu jaja
-
+<!-- end -->
 Como habrán visto en el about de este blog, mi edad cambió ayer ya que fue mi cumple (no Agustín, nadie anda mirando el about a ver si cambia el numerito 🤣) y eso lo hice con la siguiente función:
 
 ```javascript
@@ -82,6 +82,6 @@ this.state = {
 
 Y recién ahora me doy cuenta que usé hasta el horario aproximado de mi nacimiento, cosa que a la función ni le interesa saber porque no lo usa 😂
 
-Bueno, espero que les haya servido la explicación, y de paso tienen una función para ir entendiendo algunas cosas de Javascript y poder resolver problemas de la facu, o simplemente para mostrarle a sus amig@s que pueden calcular edades con un script compacto (y que se podría hacer aún más compacto). Cualquier duda que tengan me pueden escribir comentarios, si les gustó la explicación y/o qué se puede mejorar, dentro de poco empiezo a escrbir tutoriales para que puedan hacerse su propio blog en Gatsby como el mío
+Bueno, espero que les haya servido la explicación, y de paso tienen una función para ir entendiendo algunas cosas de Javascript y poder resolver problemas de la facu, o simplemente para mostrarle a sus amig@s que pueden calcular edades con un script compacto (y que se podría hacer aún más compacto). Cualquier duda que tengan me pueden escribir comentarios, si les gustó la explicación y/o qué se puede mejorar, dentro de poco empiezo a escribir tutoriales para que puedan hacerse su propio blog en Gatsby como el mío
 
 Saludos!

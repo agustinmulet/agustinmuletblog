@@ -1,45 +1,8 @@
 import React, { Component } from "react"
-import styled from "styled-components"
 import Disqus from "disqus-react"
 import { graphql, Link } from "gatsby"
 
 import TagList from "../components/taglist"
-
-const Post = styled.div`
-  text-align: justify;
-  text-justify: inter-word;
-  img,
-  iframe {
-    display: block;
-    margin: auto;
-  }
-  img {
-    max-width: 50%;
-  }
-  iframe {
-    max-width: 100%;
-  }
-  a {
-    background-color: #cecece;
-    color: inherit;
-    text-decoration: none;
-    font-weight: bolder;
-  }
-  a:hover {
-    border-bottom: 3px solid #3cb371;
-  }
-`
-
-const Linkito = styled.div`
-  a {
-    color: inherit;
-    text-decoration: none;
-    font-weight: bolder;
-  }
-  a:hover {
-    border-bottom: 3px solid #3cb371;
-  }
-`
 
 export default class PostPage extends Component {
   constructor(props) {
@@ -67,41 +30,31 @@ export default class PostPage extends Component {
     }
     return (
       <div className="wrapper">
-        <Linkito>
-          <Link to="/blog">← Volver</Link>
-        </Linkito>
-        <span>{date}</span>
-        <h1>{title}</h1>
-        <Post
-          dangerouslySetInnerHTML={{
-            __html: data.markdownRemark.html,
-          }}
-        />
-        <TagList tags={tags} titulo={true} />
-        <div>
-          <hr
-            style={{
-              marginTop: "25px",
-              marginBottom: 0,
+        <div className="blogpost">
+          <h1>{title}</h1>
+          <div className="btnvolver">
+            <Link to="/blog">← Volver</Link>
+          </div>
+          <span>{date}</span>
+          <div className="post"
+            dangerouslySetInnerHTML={{
+              __html: data.markdownRemark.html,
             }}
           />
-          <p
-            style={{
-              textAlign: "center",
-              marginBottom: 0,
-              marginLeft: "20%",
-              maxWidth: "60%",
-            }}
-          >
-            <i>
-              Todas las opiniones expresadas en este post son únicamente
-              personales y no reflejan de ninguna manera la forma de pensar o
-              los valores del lugar donde trabajo.
-            </i>
-          </p>
-          <hr />
+          <TagList tags={tags} titulo={true} />
+          <div>
+            <hr className="posthr"/>
+            <p className="postp">
+              <i>
+                Todas las opiniones expresadas en este post son únicamente
+                personales y no reflejan de ninguna manera la forma de pensar o
+                los valores del lugar donde trabajo.
+              </i>
+            </p>
+            <hr />
+          </div>
+          <Disqus.DiscussionEmbed shortname={shortname} config={disqusConfig} />
         </div>
-        <Disqus.DiscussionEmbed shortname={shortname} config={disqusConfig} />
       </div>
     )
   }

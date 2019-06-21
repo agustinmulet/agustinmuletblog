@@ -2,8 +2,8 @@ import React from "react"
 
 import SEO from "../components/seo"
 
-const NotFoundPage = props => (
-  <div className="wrapper">
+const NotFoundPage = () => (
+  <div className="wrapper index">
     <SEO title="404: Not found" />
     <h1>404 - No encontrado</h1>
     <p>
