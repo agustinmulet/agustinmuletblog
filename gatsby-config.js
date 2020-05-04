@@ -4,6 +4,7 @@ module.exports = {
     description: `Mi blog y CV`,
     headerTitle: `Agustin Mulet`,
     author: `@AgustinDMulet`,
+    image: `/assets/bg.jpg`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

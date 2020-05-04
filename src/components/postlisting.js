@@ -5,7 +5,7 @@ import TagList from "../components/taglist"
 
 const PostListing = ({ post }) => (
   <article className="postlisting">
-    <span>{post.frontmatter.date}</span>
+    <span className="postDate">{post.frontmatter.date}</span>
     <h3>
       <Link to={post.fields.slug}>{post.frontmatter.title}</Link>
     </h3>

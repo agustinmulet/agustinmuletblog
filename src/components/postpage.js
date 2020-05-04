@@ -1,8 +1,10 @@
 import React, { Component } from "react"
-import Disqus from "disqus-react"
 import { graphql, Link } from "gatsby"
 
 import TagList from "../components/taglist"
+
+import 'gitalk/dist/gitalk.css'
+import Gitalk from 'gitalk'
 
 export default class PostPage extends Component {
   constructor(props) {
@@ -15,6 +17,17 @@ export default class PostPage extends Component {
   componentDidMount() {
     let url = this.state.url
     url = window.location
+    const gitalk = new Gitalk({
+      clientID: '8ea04399f252add4c7e6',
+      clientSecret: '0d3b253dd4a11aefd006bf3c0f0ea91f694bf4f8',
+      repo: 'agustinmuletblog',
+      owner: 'agustinmulet',
+      admin: ['agustinmulet'],
+      id: this.props.data.markdownRemark.frontmatter.title,      // Ensure uniqueness and length less than 50
+      distractionFreeMode: false  // Facebook-like distraction free mode
+    })
+    
+    gitalk.render('gitalk-container')
     this.setState({ url })
   }
 
@@ -22,12 +35,6 @@ export default class PostPage extends Component {
     const { data } = this.props
     const { title, date, tags } = data.markdownRemark.frontmatter
     if (!data) return null
-    const shortname = "https-agustinmulet-netlify-com"
-    const disqusConfig = {
-      url: `https://agustinmulet.netlify.com${data.markdownRemark.fields.slug}`,
-      identifier: `${data.markdownRemark.fields.slug}`,
-      title: title,
-    }
     return (
       <div className="wrapper">
         <div className="blogpost">
@@ -53,7 +60,7 @@ export default class PostPage extends Component {
             </p>
             <hr />
           </div>
-          <Disqus.DiscussionEmbed shortname={shortname} config={disqusConfig} />
+          <div id="gitalk-container"></div>
         </div>
       </div>
     )

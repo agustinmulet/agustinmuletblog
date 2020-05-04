@@ -33,23 +33,26 @@ const Blog = ({ pageContext: { currentPage, numPages }, data }) => {
         ))}
       </div>
 
-      <footer className="blogfooter">
-        <div className="previousLink">
-          <NavLink
-            test={isFirst}
-            url={`/blog/${prevPage}`}
-            text="<<"
-          />
-        </div>
-        <p> Total {numPages} página(s) </p>
-        <div className="nextLink">
-          <NavLink
-            test={isLast}
-            url={`/blog/${nextPage}`}
-            text=">>"
-          />
-        </div>
-      </footer>
+      {
+        numPages !== 1 &&
+        <footer className="blogfooter">
+          <div className="previousLink">
+            <NavLink
+              test={isFirst}
+              url={`/blog/${prevPage}`}
+              text="<<"
+            />
+          </div>
+          <p> Total {numPages} página(s) </p>
+          <div className="nextLink">
+            <NavLink
+              test={isLast}
+              url={`/blog/${nextPage}`}
+              text=">>"
+            />
+          </div>
+        </footer>
+      }
     </div>
   )
 }

@@ -5,7 +5,7 @@
   margin: 0;
 }
 
-html, body {
+html, body, #gatsby-focus-wrapper {
   min-height: 100%;
   height: 100%;
   width: 100%;
@@ -931,6 +931,7 @@ aside:nth-of-type(2) {
 
 .postlisting {
   width: 100%;
+  margin: 12px auto;
 }
 .postlisting p {
   margin-bottom: 0;
@@ -942,7 +943,8 @@ aside:nth-of-type(2) {
 }
 .postlisting h3 {
   font-family: Sanchez, serif;
-  margin-bottom: 2px;
+  margin-top: 12px;
+  margin-bottom: 0;
 }
 .postlisting h3 a {
   text-decoration: none;
@@ -951,6 +953,12 @@ aside:nth-of-type(2) {
 }
 .postlisting h3 a:hover {
   border-bottom: 3px solid #3cb371;
+}
+.postDate {
+  border: 2px solid #3cb371;
+  border-radius: 6px;
+  padding: 1px 4px;
+  background-color: #6dce98;
 }
 
 /* postpage */
