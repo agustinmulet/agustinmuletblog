@@ -1,9 +1,8 @@
 import React from "react"
-import PropTypes from "prop-types"
 import { Tooltip } from "react-tippy"
 
-const Icon = props => {
-  const { color, size, text, tipSize } = props
+const Icon = (props) => {
+  const { color, size = 16, text, tipSize = "regular" } = props
 
   const styles = {
     svg: {
@@ -29,18 +28,6 @@ const Icon = props => {
       </svg>
     </Tooltip>
   )
-}
-
-Icon.propTypes = {
-  icon: PropTypes.array.isRequired,
-  size: PropTypes.number,
-  color: PropTypes.string,
-  tipSize: PropTypes.string,
-}
-
-Icon.defaultProps = {
-  size: 16,
-  tipSize: "regular",
 }
 
 export default Icon

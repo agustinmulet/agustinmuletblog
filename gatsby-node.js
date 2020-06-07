@@ -1,18 +1,9 @@
 const path = require("path")
-const {
-  createFilePath
-} = require("gatsby-source-filesystem")
+const { createFilePath } = require("gatsby-source-filesystem")
 const _ = require("lodash")
-const createPaginatedPages = require("gatsby-paginate")
 
-exports.onCreateNode = ({
-  node,
-  getNode,
-  actions
-}) => {
-  const {
-    createNodeField
-  } = actions
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  const { createNodeField } = actions
   if (node.internal.type === "MarkdownRemark") {
     const slug = createFilePath({
       node,
@@ -27,13 +18,8 @@ exports.onCreateNode = ({
   }
 }
 
-exports.createPages = ({
-  graphql,
-  actions
-}) => {
-  const {
-    createPage
-  } = actions
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
   return new Promise((resolve, reject) => {
     graphql(`
       {
@@ -58,7 +44,7 @@ exports.createPages = ({
           }
         }
       }
-    `).then(result => {
+    `).then((result) => {
       if (result.errors) {
         return Promise.reject(result.errors)
       }
@@ -69,7 +55,7 @@ exports.createPages = ({
       const postsPerPage = 5
       const numPages = Math.ceil(posts.length / postsPerPage)
       Array.from({
-        length: numPages
+        length: numPages,
       }).forEach((_, i) => {
         createPage({
           path: i === 0 ? `/blog` : `/blog/${i + 1}`,
@@ -78,15 +64,13 @@ exports.createPages = ({
             limit: postsPerPage,
             skip: i * postsPerPage,
             numPages,
-            currentPage: i + 1
+            currentPage: i + 1,
           },
         })
       })
 
-      //Single post page:
-      posts.forEach(({
-        node
-      }) => {
+      // Single post page:
+      posts.forEach(({ node }) => {
         createPage({
           path: node.fields.slug,
           component: path.resolve("./src/components/postpage.js"),
@@ -98,15 +82,15 @@ exports.createPages = ({
 
       // Tags page:
       let tags = []
-      _.each(posts, edge => {
+      _.each(posts, (edge) => {
         if (_.get(edge, "node.frontmatter.tags")) {
           tags = tags.concat(edge.node.frontmatter.tags)
         }
       })
-      // Eliminar tags duplicados
+      // Delete duplicate tags:
       tags = _.uniq(tags)
 
-      tags.forEach(tag => {
+      tags.forEach((tag) => {
         createPage({
           path: `/tags/${_.kebabCase(tag)}/`,
           component: path.resolve("src/components/tagspage.js"),

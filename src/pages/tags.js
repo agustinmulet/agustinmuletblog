@@ -1,41 +1,45 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { useStaticQuery, graphql, Link as GatsbyLink } from "gatsby"
+import { Flex, Heading, Link } from "@chakra-ui/core"
 
 import TagList from "../components/taglist"
-import MiniHeader from "../components/miniheader"
 import SEO from "../components/seo"
 
-const TagsPage = ({
-  data: {
-    allMarkdownRemark: { group },
-  }
-}) => {
+const TagsPage = () => {
+  const data = useStaticQuery(graphql`
+    query TagsQuery {
+      allMarkdownRemark(limit: 100) {
+        group(field: frontmatter___tags) {
+          fieldValue
+        }
+      }
+    }
+  `)
   const tags = []
-  for (let tag of group) {
+  for (let tag of data.allMarkdownRemark.group) {
     tags.push(tag.fieldValue)
   }
   return (
-    <div className="wrapper taglist">
+    <>
       <SEO title="Tags" />
-      <MiniHeader principal="Etiquetas" slug="blog" link="Todos los posts" />
-      <TagList tags={tags} scale={1} />
-    </div>
+      <Flex justifyContent="space-between" alignItems="center">
+        <Heading as="h2" size="2xl">
+          Etiquetas
+        </Heading>
+        <Link
+          as={GatsbyLink}
+          to="/blog"
+          fontSize={{ md: "2xl", xs: "lg" }}
+          fontWeight="500"
+          _hover={{ textDecoration: "none" }}
+          className="link"
+        >
+          Posts
+        </Link>
+      </Flex>
+      <TagList asLinks tags={tags} />
+    </>
   )
 }
 
 export default TagsPage
-
-export const pageQuery = graphql`
-  query TagsQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    allMarkdownRemark(limit: 2000) {
-      group(field: frontmatter___tags) {
-        fieldValue
-      }
-    }
-  }
-`

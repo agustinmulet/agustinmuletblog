@@ -3,7 +3,8 @@ title: Calcular edad con Javascript
 date: "2018-09-27"
 tags:
   - javascript
-  - js
+ogImage: './calcular-edad-con-javascript.jpg'
+description: 'Calculando la edad usando Javascript'
 ---
 
 Bueno, para arrancar posteando una problemática no tan compleja y tratar de agarrarle la mano a esto del blog, vamos a ver cómo calcular una edad con una función escrita en Javascript. Quizás le sirve a alguien más cuando se lo pidan para algún TP de la facu jaja
@@ -12,10 +13,10 @@ Como habrán visto en el about de este blog, mi edad cambió ayer ya que fue mi 
 
 ```javascript
 function getEdad(dateString) {
-  var hoy = new Date()
-  var fechaNacimiento = new Date(dateString)
-  var edad = hoy.getFullYear() - fechaNacimiento.getFullYear()
-  var diferenciaMeses = hoy.getMonth() - fechaNacimiento.getMonth()
+  let hoy = new Date()
+  let fechaNacimiento = new Date(dateString)
+  let edad = hoy.getFullYear() - fechaNacimiento.getFullYear()
+  let diferenciaMeses = hoy.getMonth() - fechaNacimiento.getMonth()
   if (
     diferenciaMeses < 0 ||
     (diferenciaMeses === 0 && hoy.getDate() < fechaNacimiento.getDate())
@@ -32,8 +33,8 @@ Podemos ver en la primer línea que la función `getEdad` va a recibir una fecha
 
 ```javascript
 function getEdad(dateString) {
-  var hoy = new Date();
-  var fechaNacimiento = new Date(dateString);
+  let hoy = new Date();
+  let fechaNacimiento = new Date(dateString);
 /* [...] */
 ```
 
@@ -41,7 +42,7 @@ Listo, ahora resta obtener los años, el de ahora (2018) y el de mi nacimiento (
 
 ```javascript
 /* [...] */
-var edad = hoy.getFullYear() - fechaNacimiento.getFullYear()
+  let edad = hoy.getFullYear() - fechaNacimiento.getFullYear()
 /* [...] */
 ```
 
@@ -51,8 +52,8 @@ Entonces deberíamos pensar cómo hacer con los meses, la idea es hacer lo mismo
 
 ```javascript
 /* [...] */
-  var diferenciaMeses = hoy.getMonth() - fechaNacimiento.getMonth();
-  if (diferenciaMeses < 0 || (diferenciaMeses === 0 && hoy.getDate() < fechaNacimiento.getDate())) {
+  let diferenciaMeses = hoy.getMonth() - fechaNacimiento.getMonth();
+  if (diferenciaMeses < 0 || (diferenciaMeses === 0 && hoy.getDate() < fechaNacimiento.getDate()))
 /* [...] */
 ```
 
@@ -72,12 +73,10 @@ Si alguna de las dos condiciones se cumple, deberíamos restar un año, ya que s
 }
 ```
 
-En mi blog esto lo guardamos en el `state` del about para luego mostrarlo:
+En mi blog uso la función directamente en JSX para mostrar la edad retornada:
 
 ```javascript
-this.state = {
-  edad: getEdad("1986/09/26 11:30:00"),
-}
+{ getEdad("1986/09/26 11:30:00") }
 ```
 
 Y recién ahora me doy cuenta que usé hasta el horario aproximado de mi nacimiento, cosa que a la función ni le interesa saber porque no lo usa 😂

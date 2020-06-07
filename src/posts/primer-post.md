@@ -3,6 +3,8 @@ title: Bienvenidos a mi blog
 date: "2018-09-20"
 tags:
   - bienvenida
+ogImage: './primer-post.jpg'
+description: 'Primer post de bienvenida'
 ---
 
 Hola, bienvenidos a este blog, voy a estar escribiendo artículos en español y cuando me anime voy a estar escribiéndolos en inglés también, dando la posibilidad al lector de seleccionar el idioma en la parte superior.

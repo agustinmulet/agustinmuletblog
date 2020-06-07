@@ -1,28 +1,36 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link as GatsbyLink } from "gatsby"
+import { Flex, Heading, Link } from "@chakra-ui/core"
 
 import PostListing from "../components/postlisting"
-import MiniHeader from "../components/miniheader"
 
-const Tags = ({ 
-  pageContext: { tag }, 
-  data: {allMarkdownRemark: { edges, totalCount }}
+const Tags = ({
+  pageContext: { tag },
+  data: {
+    allMarkdownRemark: { edges, totalCount },
+  },
 }) => {
-  const tagHeader = `${totalCount} post${
-    totalCount === 1 ? "" : "s"
-  } con la etiqueta "${tag}"`
-
   return (
-    <div className="wrapper bloglist">
-      <MiniHeader
-        principal={tagHeader}
-        slug="tags"
-        link="Todas las etiquetas"
-      />
-      {edges.map(({ node }) => (
-        <PostListing key={node.id} post={node} />
-      ))}
-    </div>
+    <>
+      <Flex justifyContent="space-between" alignItems="center">
+        <Heading as="h2" size="2xl">
+          {`${totalCount} post${
+            totalCount === 1 ? "" : "s"
+          } con la etiqueta "${tag}"`}
+        </Heading>
+        <Link
+          as={GatsbyLink}
+          to="/tags"
+          fontSize={{ md: "2xl", xs: "lg" }}
+          fontWeight="500"
+          _hover={{ textDecoration: "none" }}
+          className="link"
+        >
+          Etiquetas
+        </Link>
+      </Flex>
+      <PostListing posts={edges} />
+    </>
   )
 }
 
