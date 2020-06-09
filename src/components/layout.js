@@ -40,6 +40,7 @@ const Layout = ({ children, location }) => {
       about.current.classList.remove("hovered")
     }
   }, [location])
+  if(!colorMode) return;
   return (
     <Grid
       h="100%"
