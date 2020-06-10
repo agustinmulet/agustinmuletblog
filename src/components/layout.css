@@ -54,7 +54,6 @@ code {
 }
 
 .link:hover::after,
-.hovered::after,
 .post a:hover::after {
   height: 90%;
 }

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react"
+import React, { useRef, useEffect, useState } from "react"
 import { Link as GatsbyLink } from "gatsby"
 import {
   Box,
@@ -13,8 +13,9 @@ import Headroom from "react-headroom"
 
 import "./layout.css"
 
-const Layout = ({ children, location }) => {
+const Layout = ({ children }) => {
   const { colorMode, toggleColorMode } = useColorMode()
+  const [windowLoaded, setWindowLoaded] = useState(false)
   const bgColor = {
     body: {
       light: "gray.50",
@@ -28,20 +29,18 @@ const Layout = ({ children, location }) => {
   const color = { light: "gray.700", dark: "gray.200" }
   const blog = useRef()
   const about = useRef()
+  
   useEffect(() => {
-    if (/blog|posts|tags/.test(location.pathname)) {
-      blog.current.classList.add("hovered")
-      about.current.classList.remove("hovered")
-    } else if (/about/.test(location.pathname)) {
-      about.current.classList.add("hovered")
-      blog.current.classList.remove("hovered")
-    } else {
-      blog.current.classList.remove("hovered")
-      about.current.classList.remove("hovered")
+    if (!windowLoaded) {
+      if (typeof window !== "undefined" && window) {
+        setWindowLoaded(true)
+      }
     }
-  }, [location])
+  }, [windowLoaded])
+
   if(!colorMode) return;
-  return (
+
+  return (windowLoaded &&
     <Grid
       h="100%"
       templateAreas="'top' 'body'"

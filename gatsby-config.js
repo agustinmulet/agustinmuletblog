@@ -26,13 +26,7 @@ module.exports = {
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    {
-      resolve: "gatsby-plugin-chakra-ui",
-      options: {
-        isResettingCSS: true,
-        isUsingColorMode: true,
-      },
-    },
+    `gatsby-plugin-chakra-ui`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
