@@ -63,7 +63,7 @@ const PostPage = ({ data }) => {
             __html: data.markdownRemark.html,
           }}
         />
-        <TagList asLinks tags={tags} />
+        <TagList asLinks tags={tags} showTitle />
         <Box textAlign="center" my={5}>
           <hr />
           <Text as="i" fontSize="md">

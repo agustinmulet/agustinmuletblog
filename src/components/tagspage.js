@@ -16,7 +16,7 @@ const Tags = ({
         <Heading as="h2" size="2xl">
           {`${totalCount} post${
             totalCount === 1 ? "" : "s"
-          } con la etiqueta "${tag}"`}
+          } sobre "${tag}"`}
         </Heading>
         <Link
           as={GatsbyLink}

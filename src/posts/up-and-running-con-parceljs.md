@@ -45,14 +45,15 @@ miproyecto/
 Y les prometo que ya no tenemos que crear ningún archivo más 😱 me creen? Bueno, igual si no me creen, sigamos 🤣
 
 Lo primero que vamos a hacer es escribir en nuestro `package.json` lo que queremos que corra cuando 
-hacemos `yarn start` / `npm start` y levantamos nuestro proyecto usando Parcel:
+hacemos `yarn start` / `npm start`, sumemos también el comando para generar los archivos listos para hacer deploy en producción:
 
 ```js
 // En package.json
 {
   // Agregamos scripts si no lo tenemos, a la altura de name, version, etc.
   "scripts": {
-    "start": "parcel src/index.html"
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html"
   }
 }
 ```
@@ -117,6 +118,32 @@ ReactDOM.render(<App/>, document.getElementById('root'))
 
 Guardamos nuestro archivo y se debería refrescar automáticamente nuestra app y vemos cómo nos saluda nuestro componente de React 
 montado en el DOM de nuestro HTML 😁
+
+### Update: Agregar archivo .gitignore
+
+Olvidé decir que es importante crear este archivo para indicar qué archivos o carpetas queremos ignorar al 
+subir nuestro proyecto a [Github](https://github.com), [Bitbucket](https://bitbucket.org), [Gitlab](http://www.gitlab.com/), o lo que 
+usen para sus repositorios en Git.
+
+Creemos entonces un archivo con nombre `.gitignore` (sí, tiene un punto al principio) en la raíz de nuestro proyecto, debería 
+quedar a la misma altura que el `package.json` y adentro del archivo escribimos lo siguiente:
+
+```md
+#Carpetas con dependencias
+node_modules/
+
+#Carpetas generadas por Parcel
+.cache/
+dist/
+
+#Variables de entorno
+.env
+
+#Carpeta con configuracions de VSCode
+.vscode/
+```
+
+Y sumen archivos o carpetas que crean necesarios, las líneas que comienzan con # indica que son comentarios 😀
 
 Desde que aprendí esta forma de hacer un proyecto nuevo en el curso de Brian Holt [Complete intro to React](https://btholt.github.io/complete-intro-to-react-v5/), es la forma en la que empiezo proyectos nuevos, pruebo cosas o enseño cosas de React. Espero que les sirva para la próxima que tengan que probar algo ya que me parece que es súper útil y rápido.
 

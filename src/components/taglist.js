@@ -10,7 +10,7 @@ const tagColor = {
   react: "blue",
 }
 
-const TagList = ({ asLinks = false, tags = [] }) => {
+const TagList = ({ asLinks = false, tags = [], showTitle = false }) => {
   return asLinks ? (
     <Flex
       w="100%"
@@ -19,16 +19,19 @@ const TagList = ({ asLinks = false, tags = [] }) => {
       alignItems="center"
       justifyItems="center"
     >
-      <Heading as="h3" fontSize="lg">
-        Etiquetas:
-      </Heading>
-      <Stack isInline mt={3} spacing={6}>
+      {showTitle && (
+        <Heading as="h3" fontSize="lg">
+          Etiquetas:
+        </Heading>
+      )}
+      <Stack isInline mt={3} spacing={6} display="inline-block">
         {tags.map((tag) => (
           <Tag
             fontSize="xl"
             rounded="full"
             size={["xs", "sm", "lg", "2xl"]}
             px={3}
+            my={3}
             variantColor={tagColor[tag] || "teal"}
             key={tag}
           >
