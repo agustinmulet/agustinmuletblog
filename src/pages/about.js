@@ -26,10 +26,12 @@ function getEdad(dateString) {
 
 const About = () => {
   const data = useStaticQuery(graphql`
-    query myImgQuery {
-      myImg: imageSharp(fluid: { originalName: { eq: "Agus-removebg.png" } }) {
-        fluid(maxWidth: 1200) {
-          ...GatsbyImageSharpFluid
+    query {
+      file(relativePath: { eq: "images/Agus-removebg.png" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid_tracedSVG
+          }
         }
       }
     }
@@ -43,7 +45,7 @@ const About = () => {
 
       <Flex direction="column">
         <Box size="xs" alignSelf="center" h="100%" borderRadius="lg" mb={5}>
-          <Img fluid={data.myImg.fluid} alt="Agustin Mulet" />
+          <Img className="myImg" fluid={data.file.childImageSharp.fluid} alt="Agustin Mulet" />
         </Box>
         <Text fontSize="lg" textAlign="justify" textJustify="inter-word">
           {getEdad("1986/09/26 11:30:00")} años, recibido en Tecnicatura

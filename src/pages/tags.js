@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 
 const TagsPage = () => {
   const data = useStaticQuery(graphql`
-    query TagsQuery {
+    query {
       allMarkdownRemark(limit: 100) {
         group(field: frontmatter___tags) {
           fieldValue
