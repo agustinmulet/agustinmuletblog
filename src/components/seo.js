@@ -10,7 +10,7 @@ function SEO({
   meta = [],
   keywords = [],
   title,
-  ogImage,
+  ogImage = false,
   postTitle,
   slug = ""
 }) {

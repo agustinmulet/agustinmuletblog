@@ -25,21 +25,17 @@ exports.createPages = ({ graphql, actions }) => {
       {
         allMarkdownRemark(
           sort: { fields: [frontmatter___date], order: DESC }
-          limit: 2000
+          limit: 50
         ) {
           edges {
             node {
               id
               frontmatter {
-                title
-                date(formatString: "DD MMMM YYYY", locale: "es")
                 tags
               }
               fields {
                 slug
               }
-              html
-              excerpt
             }
           }
         }

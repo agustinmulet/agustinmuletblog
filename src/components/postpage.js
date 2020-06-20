@@ -15,13 +15,12 @@ const PostPage = ({ data }) => {
     ogImage,
     description,
   } = data.markdownRemark.frontmatter
-  const ogImagePath = ogImage && ogImage.childImageSharp.fixed.src
   return (
     <>
       <SEO
         title="Blog"
         postTitle={title}
-        ogImage={ogImagePath}
+        ogImage={ogImage.childImageSharp.fixed.src || null}
         description={description}
         slug={data.markdownRemark.fields.slug}
       />
@@ -122,7 +121,7 @@ export const query = graphql`
         description
         ogImage {
           childImageSharp {
-            fixed {
+            fixed(width: 680) {
               src
             }
           }

@@ -5,8 +5,7 @@ module.exports = {
     headerTitle: `Agustin Mulet`,
     author: `@AgustinDMulet`,
     siteUrl: `https://agustinmulet.dev/`,
-    image: `/assets/bg.jpg`,
-    siteURL: `https://agustinmulet.dev`,
+    image: `src/images/bg.jpg`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
