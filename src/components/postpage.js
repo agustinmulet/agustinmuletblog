@@ -40,13 +40,6 @@ const PostPage = ({ data }) => {
         publishedDate={date}
         modifiedDate={new Date(Date.now())}
       />
-      {/* <SEO
-        title="Blog"
-        postTitle={title}
-        ogImage={ogImage.childImageSharp.fixed.src || null}
-        description={description}
-        slug={data.markdownRemark.fields.slug}
-      /> */}
       <Flex height="50vh" direction="row" alignContent="center">
         <Link
           as={GatsbyLink}
@@ -68,7 +61,7 @@ const PostPage = ({ data }) => {
           w="100%"
           alignSelf="center"
         >
-          {title}{ogImage.publicURL}
+          {title}
         </Heading>
       </Flex>
       <Badge variantColor="green" fontSize="md" borderRadius="lg" px={2} py={1}>
