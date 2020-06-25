@@ -1,13 +1,9 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
 import { Box, Flex, Heading, Text } from "@chakra-ui/core"
-
-import SEO from "../components/seo"
+import { graphql, useStaticQuery } from "gatsby"
+import Img from "gatsby-image"
+import React from "react"
 import Icon from "../components/icon"
-
-import "react-tippy/dist/tippy.css"
-
+import SEO from "../components/seo"
 import { ICONS } from "../images/icons/icons"
 
 function getEdad(dateString) {
@@ -45,7 +41,7 @@ const About = () => {
 
       <Flex direction="column">
         <Box size="xs" alignSelf="center" h="100%" borderRadius="lg" mb={5}>
-          <Img className="myImg" fluid={data.file.childImageSharp.fluid} alt="Agustin Mulet" />
+          <Img fluid={data.file.childImageSharp.fluid} alt="Agustin Mulet" />
         </Box>
         <Text fontSize="lg" textAlign="justify" textJustify="inter-word">
           {getEdad("1986/09/26 11:30:00")} años, recibido en Tecnicatura

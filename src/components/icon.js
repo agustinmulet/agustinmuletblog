@@ -1,8 +1,8 @@
+import { Tooltip } from "@chakra-ui/core"
 import React from "react"
-import { Tooltip } from "react-tippy"
 
 const Icon = (props) => {
-  const { color, size = 16, text, tipSize = "regular" } = props
+  const { color, size = 16, text } = props
 
   const styles = {
     svg: {
@@ -15,7 +15,7 @@ const Icon = (props) => {
   }
 
   return (
-    <Tooltip title={text} size={tipSize}>
+    <Tooltip hasArrow label={text} placement="top">
       <svg
         style={styles.svg}
         width={`${size}px`}
