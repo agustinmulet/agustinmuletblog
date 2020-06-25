@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import React from "react"
 import Icon from "../components/icon"
-import SEO from "../components/seo"
+import SEO from "../components/myseo"
 import { ICONS } from "../images/icons/icons"
 
 function getEdad(dateString) {
@@ -34,7 +34,7 @@ const About = () => {
   `)
   return (
     <>
-      <SEO title="About" />
+      <SEO pageTitle="About" />
       <Heading as="h2" size="2xl">
         Sobre mí
       </Heading>

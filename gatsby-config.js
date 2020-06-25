@@ -1,11 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Blog de Agustin Mulet`,
+    authorName: `Agustin Mulet`,
     description: `Mi blog y CV`,
     headerTitle: `Agustin Mulet`,
-    author: `@AgustinDMulet`,
-    siteUrl: `https://agustinmulet.dev/`,
     image: `src/images/bg.jpg`,
+    siteLanguage: `es-AR`,
+    siteLocale: `es_ar`,
+    siteUrl: `https://agustinmulet.dev/`,
+    title: `Blog de Agustin Mulet`,
+    twitterUsername: `@AgustinDMulet`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

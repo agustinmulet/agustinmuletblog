@@ -31,7 +31,8 @@
     "react-dom": "^16.13.1",
     "react-headroom": "^3.0.0",
     "react-helmet": "^6.1.0",
-    "react-icons": "^3.10.0"
+    "react-icons": "^3.10.0",
+    "react-seo-component": "^2.0.2"
   },
   "devDependencies": {
     "prettier": "^2.0.5"

@@ -1,11 +1,10 @@
+import { Flex, Heading, Text } from "@chakra-ui/core"
 import React from "react"
-import { Heading, Text, Flex } from "@chakra-ui/core"
-
-import SEO from "../components/seo"
+import SEO from "../components/myseo"
 
 const NotFoundPage = () => (
   <>
-    <SEO title="404: Not found" />
+    <SEO pageTitle="404: Not found" />
     <Flex h="100%" direction="row" alignContent="center">
       <Heading
         as="h1"

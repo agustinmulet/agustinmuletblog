@@ -1,12 +1,20 @@
-import React from "react"
+import { Badge, Box, Flex, Heading, Link, Stack, Text } from "@chakra-ui/core"
 import { graphql, Link as GatsbyLink } from "gatsby"
-import { Box, Flex, Heading, Text, Link, Badge, Stack } from "@chakra-ui/core"
-import { AiOutlineTwitter, AiOutlineGithub } from "react-icons/ai"
-
+import React from "react"
+import { AiOutlineGithub, AiOutlineTwitter } from "react-icons/ai"
+import SEO from "react-seo-component"
 import TagList from "../components/taglist"
-import SEO from "./seo"
+import { useSiteMetadata } from '../hooks/useSiteMetadata'
+
 
 const PostPage = ({ data }) => {
+  const {
+    twitterUsername,
+    siteUrl,
+    authorName,
+    siteLanguage,
+    siteLocale,
+  } = useSiteMetadata()
   if (!data) return null
   const {
     title,
@@ -18,12 +26,27 @@ const PostPage = ({ data }) => {
   return (
     <>
       <SEO
+        title={title}
+        titleTemplate={'Blog'}
+        titleSeparator={`|`}
+        description={description}
+        image={`${siteUrl}${ogImage.publicURL}`}
+        pathname={`${siteUrl}${data.markdownRemark.fields.slug}`}
+        siteLanguage={siteLanguage}
+        siteLocale={siteLocale}
+        twitterUsername={twitterUsername}
+        author={authorName}
+        article={true}
+        publishedDate={date}
+        modifiedDate={new Date(Date.now())}
+      />
+      {/* <SEO
         title="Blog"
         postTitle={title}
         ogImage={ogImage.childImageSharp.fixed.src || null}
         description={description}
         slug={data.markdownRemark.fields.slug}
-      />
+      /> */}
       <Flex height="50vh" direction="row" alignContent="center">
         <Link
           as={GatsbyLink}
@@ -45,7 +68,7 @@ const PostPage = ({ data }) => {
           w="100%"
           alignSelf="center"
         >
-          {title}
+          {title}{ogImage.publicURL}
         </Heading>
       </Flex>
       <Badge variantColor="green" fontSize="md" borderRadius="lg" px={2} py={1}>
@@ -120,6 +143,7 @@ export const query = graphql`
         tags
         description
         ogImage {
+          publicURL
           childImageSharp {
             fixed(width: 680) {
               src

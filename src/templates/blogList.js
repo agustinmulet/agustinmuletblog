@@ -1,9 +1,9 @@
+import { Flex, Heading, Link, Text } from "@chakra-ui/core"
+import { graphql, Link as GatsbyLink } from "gatsby"
 import React from "react"
-import { Link as GatsbyLink, graphql } from "gatsby"
-import { Flex, Heading, Text, Link } from "@chakra-ui/core"
-
+import SEO from "../components/myseo"
 import PostListing from "../components/postlisting"
-import SEO from "../components/seo"
+
 
 const NavLink = (props) => {
   if (!props.test) {
@@ -34,7 +34,7 @@ const Blog = (props) => {
   const nextPage = (currentPage + 1).toString()
   return (
     <>
-      <SEO title="Blog" />
+      <SEO pageTitle="Blog" />
       <Flex justifyContent="space-between" alignItems="center">
         <Heading as="h2" size="2xl">
           Posts

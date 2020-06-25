@@ -1,11 +1,11 @@
+import { Flex, Heading } from "@chakra-ui/core"
 import React from "react"
-import { Heading, Flex } from "@chakra-ui/core"
+import SEO from "../components/myseo"
 
-import SEO from "../components/seo"
 
 const IndexPage = () => (
   <>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+    <SEO pageTitle="Home" />
     <Flex alignItems="center" justifyContent="center" h="100%" w="100%">
       <Heading
         as="h1"

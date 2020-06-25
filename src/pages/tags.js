@@ -1,9 +1,8 @@
-import React from "react"
-import { useStaticQuery, graphql, Link as GatsbyLink } from "gatsby"
 import { Flex, Heading, Link } from "@chakra-ui/core"
-
+import { graphql, Link as GatsbyLink, useStaticQuery } from "gatsby"
+import React from "react"
+import SEO from "../components/myseo"
 import TagList from "../components/taglist"
-import SEO from "../components/seo"
 
 const TagsPage = () => {
   const data = useStaticQuery(graphql`
@@ -21,7 +20,7 @@ const TagsPage = () => {
   }
   return (
     <>
-      <SEO title="Tags" />
+      <SEO pageTitle="Tags" />
       <Flex justifyContent="space-between" alignItems="center">
         <Heading as="h2" size="2xl">
           Etiquetas

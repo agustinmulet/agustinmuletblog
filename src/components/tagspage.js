@@ -1,7 +1,7 @@
-import React from "react"
-import { graphql, Link as GatsbyLink } from "gatsby"
 import { Flex, Heading, Link } from "@chakra-ui/core"
-
+import { graphql, Link as GatsbyLink } from "gatsby"
+import React from "react"
+import SEO from "../components/myseo"
 import PostListing from "../components/postlisting"
 
 const Tags = ({
@@ -12,6 +12,7 @@ const Tags = ({
 }) => {
   return (
     <>
+      <SEO pageTitle="Tags" />
       <Flex justifyContent="space-between" alignItems="center">
         <Heading as="h2" size="2xl">
           {`${totalCount} post${
