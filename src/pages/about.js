@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import React from "react"
 import Icon from "../components/icon"
-import SEO from "../components/myseo"
+import MySEO from "../components/myseo"
 import { ICONS } from "../images/icons/icons"
 
 function getEdad(dateString) {
@@ -21,9 +21,9 @@ function getEdad(dateString) {
 }
 
 const About = () => {
-  const data = useStaticQuery(graphql`
+  const { file } = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "images/Agus-removebg.png" }) {
+      file(relativePath: { eq: "Agus.png" }) {
         childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid_tracedSVG
@@ -34,14 +34,18 @@ const About = () => {
   `)
   return (
     <>
-      <SEO pageTitle="About" />
+      <MySEO pageTitle="About" />
       <Heading as="h2" size="2xl">
         Sobre mí
       </Heading>
 
-      <Flex direction="column">
+      <Flex
+        direction="column"
+        alignSelf="center"
+        maxW={{ md: "100vw", sm: "80vw", xs: "calc(100vw - 2rem)" }}
+      >
         <Box size="xs" alignSelf="center" h="100%" borderRadius="lg" mb={5}>
-          <Img fluid={data.file.childImageSharp.fluid} alt="Agustin Mulet" />
+          <Img fluid={file.childImageSharp.fluid} alt="Agustin Mulet" />
         </Box>
         <Text fontSize="lg" textAlign="justify" textJustify="inter-word">
           {getEdad("1986/09/26 11:30:00")} años, recibido en Tecnicatura

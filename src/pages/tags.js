@@ -1,7 +1,7 @@
 import { Flex, Heading, Link } from "@chakra-ui/core"
 import { graphql, Link as GatsbyLink, useStaticQuery } from "gatsby"
 import React from "react"
-import SEO from "../components/myseo"
+import MySEO from "../components/myseo"
 import TagList from "../components/taglist"
 
 const TagsPage = () => {
@@ -14,15 +14,16 @@ const TagsPage = () => {
       }
     }
   `)
+
   const tags = []
   for (let tag of data.allMarkdownRemark.group) {
     tags.push(tag.fieldValue)
   }
   return (
     <>
-      <SEO pageTitle="Tags" />
+      <MySEO pageTitle="Tags" />
       <Flex justifyContent="space-between" alignItems="center">
-        <Heading as="h2" size="2xl">
+        <Heading as="h2" size="2xl" ml={3}>
           Etiquetas
         </Heading>
         <Link
@@ -32,6 +33,7 @@ const TagsPage = () => {
           fontWeight="500"
           _hover={{ textDecoration: "none" }}
           className="link"
+          mr={3}
         >
           Posts
         </Link>

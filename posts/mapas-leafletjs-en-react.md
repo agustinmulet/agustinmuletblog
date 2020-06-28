@@ -10,7 +10,7 @@ description: "Usando mapas de LeafletJS con React"
 ---
 
 Siempre nos toca usar algún mapa, ya sea porque un cliente quiere indicar su dirección por el footer de la página o 
-porque necesitamos indicar direcciones por otra cosa.<!-- end -->
+porque necesitamos indicar direcciones por otra cosa.
 
 Hoy vamos a ver cómo integrar mapas de [LeafletJS](https://leafletjs.com) usando el paquete [react-leaflet](https://react-leaflet.js.org).
 

@@ -1,34 +1,34 @@
 module.exports = {
   siteMetadata: {
-    authorName: `Agustin Mulet`,
+    title: `Blog de Agustin Mulet`,
     description: `Mi blog y CV`,
     headerTitle: `Agustin Mulet`,
-    image: `src/images/bg.jpg`,
+    twitterUsername: `@AgustinDMulet`,
+    authorName: `Agustin Mulet`,
+    image: `/bg.jpg`,
     siteLanguage: `es-AR`,
     siteLocale: `es_ar`,
-    siteUrl: `https://agustinmulet.dev/`,
-    title: `Blog de Agustin Mulet`,
-    twitterUsername: `@AgustinDMulet`,
+    siteUrl: `https://eloquent-gates-0552b9.netlify.app/`,
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `src`,
-        path: `${__dirname}/src`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-chakra-ui`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/posts`,
+        name: `posts`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/images`,
+        name: `images`,
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -54,22 +54,16 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        excerpt_separator: `<!-- end -->`,
         plugins: [
           {
             resolve: `gatsby-remark-shiki`,
             options: {
-              theme: "Material-Theme-Palenight",
+              theme: `Material-Theme-Palenight`,
             },
           },
         ],
       },
     },
-    {
-      resolve: `gatsby-plugin-layout`,
-      options: {
-        component: require.resolve(`./src/components/layout.js`),
-      },
-    },
+    `gatsby-plugin-layouts`,
   ],
 }

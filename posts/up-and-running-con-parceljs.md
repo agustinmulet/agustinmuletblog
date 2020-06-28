@@ -8,7 +8,7 @@ ogImage: "./up-and-running-con-parceljs.jpg"
 description: "Cómo levantar un entorno de trabajo súper rápido!"
 ---
 
-Cómo levantamos un entorno de trabajo si queremos trabajar con React? Usando [create-react-app](https://github.com/facebookincubator/create-react-app), no? Pero no les pasa que últimamente tarda cada vez más en instalar todas las dependencias? O que trae conflictos de versiones si lo tenés instalado de forma global en tu compu? Hoy vamos a ver [Parcel.js](https://parceljs.org/)<!-- end -->
+Cómo levantamos un entorno de trabajo si queremos trabajar con React? Usando [create-react-app](https://github.com/facebookincubator/create-react-app), no? Pero no les pasa que últimamente tarda cada vez más en instalar todas las dependencias? O que trae conflictos de versiones si lo tenés instalado de forma global en tu compu? Hoy vamos a ver [Parcel.js](https://parceljs.org/)
 
 ⚠ Disclaimer: Con este post no quiero dar a entender que Parcel sea **mejor** que CRA, sino que es una **alternativa**.
 

@@ -24,7 +24,7 @@ async function createBlogListPages(createPage, posts) {
 }
 
 async function createSinglePostPages(createPage, posts) {
-  const blogPostTemplate = await path.resolve("src/components/postpage.js")
+  const blogPostTemplate = await path.resolve("src/templates/postpage.js")
   // Single post page:
   posts.forEach((post) => {
     createPage({
@@ -38,7 +38,7 @@ async function createSinglePostPages(createPage, posts) {
 }
 
 async function createTagsListPages(createPage, posts) {
-  const tagsListTemplate = await path.resolve("src/components/tagspage.js")
+  const tagsListTemplate = await path.resolve("src/pages/tagspage.js")
   // Tags page:
   let tags = []
   _.each(posts, (post) => {
@@ -63,6 +63,7 @@ async function createTagsListPages(createPage, posts) {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
+
   const result = await graphql(`
     {
       allMarkdownRemark(
@@ -107,8 +108,8 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       basePath: "posts",
     })
     createNodeField({
-      node,
       name: "slug",
+      node,
       value: `/posts${slug}`,
     })
   }

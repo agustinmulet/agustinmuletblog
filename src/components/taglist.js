@@ -1,7 +1,7 @@
-import React from "react"
+import { Flex, Heading, Link, Stack, Tag, TagLabel } from "@chakra-ui/core"
 import { Link as GatsbyLink } from "gatsby"
 import kebabCase from "lodash/kebabCase"
-import { Flex, Stack, Tag, TagLabel, Link, Heading } from "@chakra-ui/core"
+import React from "react"
 
 const tagColor = {
   angular: "red",
@@ -10,7 +10,7 @@ const tagColor = {
   react: "blue",
 }
 
-const TagList = ({ asLinks = false, tags = [], showTitle = false }) => {
+const TagList = ({ asLinks = false, isPost = false, tags = [] }) => {
   return asLinks ? (
     <Flex
       w="100%"
@@ -19,21 +19,21 @@ const TagList = ({ asLinks = false, tags = [], showTitle = false }) => {
       alignItems="center"
       justifyItems="center"
     >
-      {showTitle && (
+      {isPost && (
         <Heading as="h3" fontSize="lg">
           Etiquetas:
         </Heading>
       )}
-      <Stack isInline mt={3} spacing={6} display="inline-block">
+      <Stack isInline mt={3} spacing={6} flexWrap="wrap" mx={3}>
         {tags.map((tag) => (
           <Tag
             fontSize="xl"
             rounded="full"
             size={["xs", "sm", "lg", "2xl"]}
             px={3}
-            my={3}
             variantColor={tagColor[tag] || "teal"}
             key={tag}
+            my={3}
           >
             <Link
               as={GatsbyLink}

@@ -1,42 +1,43 @@
-import React from "react"
-import { Link as GatsbyLink } from "gatsby"
 import {
+  Badge,
   Box,
   Flex,
   Heading,
-  Text,
   Link,
   Stack,
-  Badge,
-  useColorMode,
+  Text,
+  useColorMode
 } from "@chakra-ui/core"
-
+import { Link as GatsbyLink } from "gatsby"
+import React from "react"
 import TagList from "../components/taglist"
 
 const PostListing = ({ posts }) => {
   const { colorMode } = useColorMode()
   return (
-    <>
-      <Flex direction="column">
-        <Stack my={3} spacing={8}>
-          {posts.map(({ node: post }) => (
-            <MyPost
-              key={post.id}
-              date={post.frontmatter.date}
-              title={post.frontmatter.title}
-              desc={post.excerpt}
-              tags={post.frontmatter.tags}
-              slug={post.fields.slug}
-              colorMode={colorMode}
-            />
-          ))}
-        </Stack>
-      </Flex>
-    </>
+    <Flex direction="column">
+      <Stack my={3} spacing={8}>
+        {posts.map((post) => (
+          <MyPost
+            key={post.id}
+            date={post.frontmatter.date}
+            title={post.frontmatter.title}
+            desc={post.excerpt}
+            tags={post.frontmatter.tags}
+            slug={post.fields.slug}
+            colorMode={colorMode}
+          />
+        ))}
+      </Stack>
+    </Flex>
   )
 }
 
 const MyPost = ({ date, title, desc, tags, slug, colorMode, ...rest }) => {
+  const bgColor = {
+    light: "gray.100",
+    dark: "gray.700",
+  }
   return (
     <Link
       as={GatsbyLink}
@@ -46,7 +47,8 @@ const MyPost = ({ date, title, desc, tags, slug, colorMode, ...rest }) => {
       p={4}
       shadow="xl"
       borderRadius="md"
-      _hover={{ bg: colorMode === "dark" ? "teal.700" : "teal.200" }}
+      bg={bgColor[colorMode]}
+      _hover={{ bg: colorMode === "dark" ? "teal.900" : "teal.200" }}
       {...rest}
     >
       <Badge variantColor="green" borderRadius="lg" px={2} py={1}>

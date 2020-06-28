@@ -1,9 +1,8 @@
 import { Flex, Heading, Link, Text } from "@chakra-ui/core"
 import { graphql, Link as GatsbyLink } from "gatsby"
 import React from "react"
-import SEO from "../components/myseo"
+import MySEO from "../components/myseo"
 import PostListing from "../components/postlisting"
-
 
 const NavLink = (props) => {
   if (!props.test) {
@@ -34,9 +33,9 @@ const Blog = (props) => {
   const nextPage = (currentPage + 1).toString()
   return (
     <>
-      <SEO pageTitle="Blog" />
+      <MySEO pageTitle="Blog" />
       <Flex justifyContent="space-between" alignItems="center">
-        <Heading as="h2" size="2xl">
+        <Heading as="h2" size="2xl" ml={3}>
           Posts
         </Heading>
         {numPages !== 1 && (
@@ -53,12 +52,13 @@ const Blog = (props) => {
           fontWeight="500"
           _hover={{ textDecoration: "none" }}
           className="link"
+          mr={3}
         >
           Etiquetas
         </Link>
       </Flex>
 
-      <PostListing posts={data.allMarkdownRemark.edges} />
+      <PostListing posts={data.allMarkdownRemark.nodes} />
     </>
   )
 }
@@ -68,20 +68,17 @@ export default Blog
 export const blogListQuery = graphql`
   query blogListQuery {
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          id
-          frontmatter {
-            title
-            date(formatString: "DD MMMM YYYY", locale: "es")
-            tags
-          }
-          fields {
-            slug
-          }
-          html
-          excerpt
+      nodes {
+        id
+        frontmatter {
+          title
+          date(formatString: "DD MMMM YYYY", locale: "es")
+          tags
         }
+        fields {
+          slug
+        }
+        excerpt(pruneLength: 245)
       }
     }
   }
