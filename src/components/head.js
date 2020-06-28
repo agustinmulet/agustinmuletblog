@@ -15,7 +15,6 @@ export default function Head() {
       dark: "gray.700",
     },
   }
-  const color = { light: "gray.700", dark: "gray.200" }
   return typeof window !== "undefined" && window ? (
     <Headroom
       style={{
@@ -31,13 +30,11 @@ export default function Head() {
         alignItems="center"
         boxShadow="0 4px 4px -2px rgba(0,0,0,.4)"
         bg={bgColor.nav[colorMode]}
-        color={color[colorMode]}
         transition="background-color 200ms ease"
       >
         <Link
           as={GatsbyLink}
           to="/"
-          variantColor={color[colorMode]}
           mx={2}
           _hover={{ textDecoration: "none" }}
         >
@@ -51,7 +48,6 @@ export default function Head() {
             to="/blog"
             mr={5}
             fontSize={["md", "lg", "xl", "2xl"]}
-            variantColor={color[colorMode]}
             _hover={{ textDecoration: "none" }}
             className="link"
           >
@@ -63,7 +59,6 @@ export default function Head() {
             to="/about"
             mr={3}
             fontSize={["md", "lg", "xl", "2xl"]}
-            variantColor={color[colorMode]}
             _hover={{ textDecoration: "none" }}
             className="link"
           >

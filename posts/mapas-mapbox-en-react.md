@@ -33,7 +33,7 @@ Una vez hecho eso, tengamos nuestro Access token preferentemente guardado en una
 proyecto un archivo que se llame `.env` y dentro ponemos lo siguiente: 
 
 ```js
-MAPBOX_TOKEN=pk.eyJ1IjoiYWd1c3Rpbm11bGV0IiwiYSI6ImNrOW9reHF0ZXXXXXXXXXXXXXXXXXXXXXXXXX.eR8Vx8ROCXXXXXXXXXXXXX
+MAPBOX_TOKEN=pk.eyJ1IjoiYWd1c3Rpbm11bGV0IiwiYSI6ImNrOW9reHF0ZXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 Obviamente con un token **real**. Luego en el frontend podemos acceder a este valor usando `process.env.MAPBOX_TOKEN`, aunque al momento de usarlo si ven que 

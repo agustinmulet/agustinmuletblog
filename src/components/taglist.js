@@ -8,6 +8,8 @@ const tagColor = {
   gatsby: "purple",
   javascript: "yellow",
   react: "blue",
+  leafletjs: "green",
+  mapbox: "blue"
 }
 
 const TagList = ({ asLinks = false, isPost = false, tags = [] }) => {

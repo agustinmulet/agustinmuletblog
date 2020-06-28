@@ -14,8 +14,8 @@ import TagList from "../components/taglist"
 
 const PostListing = ({ posts }) => {
   const { colorMode } = useColorMode()
-  return (
-    <Flex direction="column">
+  return typeof window !== "undefined" && window ? (
+    <Flex direction="column" mb={3}>
       <Stack my={3} spacing={8}>
         {posts.map((post) => (
           <MyPost
@@ -30,7 +30,7 @@ const PostListing = ({ posts }) => {
         ))}
       </Stack>
     </Flex>
-  )
+  ) : null
 }
 
 const MyPost = ({ date, title, desc, tags, slug, colorMode, ...rest }) => {

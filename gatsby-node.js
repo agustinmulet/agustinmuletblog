@@ -2,27 +2,6 @@ const path = require("path")
 const { createFilePath } = require("gatsby-source-filesystem")
 const _ = require("lodash")
 
-async function createBlogListPages(createPage, posts) {
-  const blogListTemplate = await path.resolve("src/templates/blogList.js")
-  // Create blog-list pages
-  const postsPerPage = 5
-  const numPages = Math.ceil(posts.length / postsPerPage)
-  Array.from({
-    length: numPages,
-  }).forEach((_, i) => {
-    createPage({
-      path: i === 0 ? `/blog` : `/blog/${i + 1}`,
-      component: blogListTemplate,
-      context: {
-        limit: postsPerPage,
-        skip: i * postsPerPage,
-        numPages,
-        currentPage: i + 1,
-      },
-    })
-  })
-}
-
 async function createSinglePostPages(createPage, posts) {
   const blogPostTemplate = await path.resolve("src/templates/postpage.js")
   // Single post page:
@@ -94,7 +73,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const { nodes: posts } = result.data.allMarkdownRemark
 
-  await createBlogListPages(createPage, posts)
   await createSinglePostPages(createPage, posts)
   await createTagsListPages(createPage, posts)
 }

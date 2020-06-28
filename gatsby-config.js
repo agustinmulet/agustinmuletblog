@@ -1,14 +1,13 @@
 module.exports = {
   siteMetadata: {
-    title: `Blog de Agustin Mulet`,
-    description: `Mi blog y CV`,
-    headerTitle: `Agustin Mulet`,
-    twitterUsername: `@AgustinDMulet`,
     authorName: `Agustin Mulet`,
+    description: `Mi lugar en internet donde hablo de programación para compartir conocimiento.`,
     image: `/bg.jpg`,
     siteLanguage: `es-AR`,
     siteLocale: `es_ar`,
-    siteUrl: `https://eloquent-gates-0552b9.netlify.app/`,
+    siteUrl: `https://agustinmulet.dev/`,
+    title: `Agustin Mulet`,
+    twitterUsername: `@AgustinDMulet`,
   },
   plugins: [
     `gatsby-plugin-sharp`,
