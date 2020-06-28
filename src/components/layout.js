@@ -6,7 +6,7 @@ import "./layout.css"
 const Layout = ({ children }) => {
   const { colorMode } = useColorMode()
   const color = { light: "gray.700", dark: "gray.200" }
-  return typeof window !== "undefined" && window ? (
+  return (
     <Grid
       h="100%"
       templateAreas="'top' 'body'"
@@ -31,7 +31,7 @@ const Layout = ({ children }) => {
         </Flex>
       </Grid>
     </Grid>
-  ) : null
+  )
 }
 
 export default Layout
