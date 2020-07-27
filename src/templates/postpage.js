@@ -105,7 +105,7 @@ const PostPage = ({ data }) => {
           >
             <Link
               fontSize="4xl"
-              href={`https://github.com/agustinmulet/agustinmuletblog/blob/master/src${fields.slug.slice(
+              href={`https://github.com/agustinmulet/agustinmuletblog/blob/master${fields.slug.slice(
                 0,
                 -1
               )}.md`}

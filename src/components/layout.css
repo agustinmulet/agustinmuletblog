@@ -84,7 +84,7 @@ code {
   margin-bottom: 1rem;
 }
 
-.post code {
+.post p code {
   color: #e2e8f0;
   background-color: #292d3e;
   padding: 1px 3px;
