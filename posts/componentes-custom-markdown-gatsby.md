@@ -3,7 +3,7 @@ title: Usando componentes custom en Markdown con Gatsby
 date: "2020-07-29"
 tags:
   - Gatsby
-ogImage: "./componentes-custom-markdown-gatsby.png"
+ogImage: "./componentes-custom-markdown-gatsby.jpg"
 description: "Cómo usar un componente personalizado en Gatsby con Markdown"
 ---
 

@@ -4,7 +4,7 @@ date: "2020-06-06"
 tags:
   - React
   - Parcel
-ogImage: "./up-and-running-con-parcel.png"
+ogImage: "./up-and-running-con-parcel.jpg"
 description: "Cómo levantar un entorno de trabajo súper rápido!"
 ---
 

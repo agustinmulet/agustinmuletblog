@@ -6,7 +6,7 @@ tags:
   - Parcel
   - LeafletJS
   - Mapbox
-ogImage: "./mapas-mapbox-en-leafletjs.png"
+ogImage: "./mapas-mapbox-en-leafletjs.jpg"
 description: "Usando mapas de Mapbox en LeafletJS"
 ---
 

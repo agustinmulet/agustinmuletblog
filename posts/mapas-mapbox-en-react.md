@@ -5,7 +5,7 @@ tags:
   - React
   - Parcel
   - Mapbox
-ogImage: "./mapas-mapbox-en-react.png"
+ogImage: "./mapas-mapbox-en-react.jpg"
 description: "Usando mapas de Mapbox con React"
 ---
 

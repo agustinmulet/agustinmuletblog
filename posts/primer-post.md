@@ -3,7 +3,7 @@ title: Bienvenidos a mi blog
 date: "2018-09-20"
 tags:
   - Bienvenida
-ogImage: './primer-post.png'
+ogImage: './primer-post.jpg'
 description: 'Primer post de bienvenida'
 ---
 

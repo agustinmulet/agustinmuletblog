@@ -5,7 +5,7 @@ tags:
   - React
   - Parcel
   - LeafletJS
-ogImage: "./mapas-leafletjs-en-react.png"
+ogImage: "./mapas-leafletjs-en-react.jpg"
 description: "Usando mapas de LeafletJS con React"
 ---
 
