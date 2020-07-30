@@ -2,11 +2,11 @@
 title: Usando mapas de Mapbox en LeafletJS
 date: "2020-06-26"
 tags:
-  - react
-  - parceljs
-  - leafletjs
-  - mapbox
-ogImage: "./mapas-mapbox-en-leafletjs.jpg"
+  - React
+  - Parcel
+  - LeafletJS
+  - Mapbox
+ogImage: "./mapas-mapbox-en-leafletjs.png"
 description: "Usando mapas de Mapbox en LeafletJS"
 ---
 
@@ -38,22 +38,22 @@ solamente cambiar y agregar algunas props a nuestro componente Map:
 </Map>
 ```
 
-En la `url`, donde dice `<API_KEY>` pongan su token de usuario, que les recomiendo que la guarden en una variable de entorno. 
+En la <inline-code>url</inline-code>, donde dice <inline-code><API\_KEY></inline-code> pongan su token de usuario, que les recomiendo que la guarden en una variable de entorno. 
 Ven también que agregamos las atribuciones correspondientes y las props agregadas 
-fueron `tileSize` y `zoomOffset`. `tileSize` es para indicar el tamaño de _mosaicos_ de mapas que queremos cargar, en mi caso utilicé de 512x512 
-pero pueden ser de 256x256. En el caso del `zoomOffset`, encontré que si no indicaba -1 en el valor, no eran legibles los nombres de las cosas (calles, 
+fueron <inline-code>tileSize</inline-code> y <inline-code>zoomOffset</inline-code>. <inline-code>tileSize</inline-code> es para indicar el tamaño de _mosaicos_ de mapas que queremos cargar, en mi caso utilicé de 512x512 
+pero pueden ser de 256x256. En el caso del <inline-code>zoomOffset</inline-code>, encontré que si no indicaba -1 en el valor, no eran legibles los nombres de las cosas (calles, 
 estaciones, etc.)
 
-Otra cosa que se puede cambiar en estos mapas son los tipos de mosaicos. Si ven en la URL, luego de `/v1/mapbox/` se indica tipo y versión de mosaicos a usar.
+Otra cosa que se puede cambiar en estos mapas son los tipos de mosaicos. Si ven en la URL, luego de <inline-code>/v1/mapbox/</inline-code> se indica tipo y versión de mosaicos a usar.
 
 En la [documentación de Mapbox](https://docs.mapbox.com/api/maps/#styles) se indican otros, al momento de escribir este post estos son los que hay disponibles:
 
-- `/mapbox/streets-v11`
-- `/mapbox/outdoors-v11`
-- `/mapbox/light-v10`
-- `/mapbox/dark-v10`
-- `/mapbox/satellite-v9`
-- `/mapbox/satellite-streets-v11`
+- <inline-code>/mapbox/streets-v11</inline-code>
+- <inline-code>/mapbox/outdoors-v11</inline-code>
+- <inline-code>/mapbox/light-v10</inline-code>
+- <inline-code>/mapbox/dark-v10</inline-code>
+- <inline-code>/mapbox/satellite-v9</inline-code>
+- <inline-code>/mapbox/satellite-streets-v11</inline-code>
 
 Este post fue más cortito pero me pareció interesante mostrar que existen otras integraciones con LeafletJS, y encima los mapas de Mapbox están 
 muy buenos.

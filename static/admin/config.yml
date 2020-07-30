@@ -2,8 +2,8 @@ backend:
   name: github
   repo: agustinmulet/agustinmuletblog
 
-media_folder: static/assets
-public_folder: /assets
+media_folder: /posts
+public_folder: /posts
 
 collections:
   - name: post

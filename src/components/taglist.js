@@ -4,12 +4,12 @@ import kebabCase from "lodash/kebabCase"
 import React from "react"
 
 const tagColor = {
-  angular: "red",
-  gatsby: "purple",
-  javascript: "yellow",
-  react: "blue",
-  leafletjs: "green",
-  mapbox: "blue"
+  Angular: "red",
+  Gatsby: "purple",
+  VanillaJS: "yellow",
+  React: "blue",
+  LeafletJS: "green",
+  Mapbox: "blue"
 }
 
 const TagList = ({ asLinks = false, isPost = false, tags = [] }) => {

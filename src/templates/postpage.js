@@ -3,8 +3,16 @@ import { graphql, Link as GatsbyLink } from "gatsby"
 import React from "react"
 import { AiOutlineGithub, AiOutlineTwitter } from "react-icons/ai"
 import SEO from "react-seo-component"
+import rehypeReact from "rehype-react"
+import components from '../components/post-components'
 import TagList from "../components/taglist"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
+
+const renderAst = new rehypeReact({
+  createElement: React.createElement,
+  Fragment: React.Fragment,
+  components,
+}).Compiler
 
 const PostPage = ({ data }) => {
   const {
@@ -71,16 +79,16 @@ const PostPage = ({ data }) => {
         {date}
       </Badge>
       <Flex direction="column" mt={4} px={2}>
-        <Text
-          my={2}
+        <Box
+          my={2} 
           className="post"
           fontSize="md"
           alignSelf="center"
-          maxW={{ md: "100vw", sm: "80vw", xs: "calc(100vw - 2rem)" }}
-          dangerouslySetInnerHTML={{
-            __html: data.markdownRemark.html,
-          }}
-        />
+          maxW={{ md: "100vw", sm: "80vw", xs: "calc(100vw - 2rem)" }} 
+          textAlign="justify"
+        >
+          {renderAst(data.markdownRemark.htmlAst)}
+        </Box>
         <TagList asLinks isPost tags={tags} />
         <Box textAlign="center" my={5}>
           <hr />
@@ -132,7 +140,7 @@ export default PostPage
 export const query = graphql`
   query BlogPostQuery($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+      htmlAst
       frontmatter {
         title
         date(formatString: "DD MMMM YYYY", locale: "es")

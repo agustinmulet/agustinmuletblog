@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Text } from "@chakra-ui/core"
+import { Box, Code, Flex, Heading, Text } from "@chakra-ui/core"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import React from "react"
@@ -61,7 +61,7 @@ const About = () => {
           </a>{" "}
           desde el 04 de Abril de 2019. En la facultad he realizado proyectos y
           estudiado utilizando lenguajes tales como{" "}
-          <code>C, C++, C#, Java, Javascript, HTML, CSS, PHP y SQL</code>,
+          <Code variantColor="purple">C, C++, C#, Java, Javascript, HTML, CSS, PHP y SQL</Code>,
           disfruto mucho de aprender cosas nuevas y estoy en constante
           aprendizaje.
           <br />
@@ -160,7 +160,13 @@ const About = () => {
           <Text mt={1} fontSize="xs">
             <small>
               Algunos de los íconos utilizados fueron hechos por{" "}
-              <a className="link" href="http://www.freepik.com" title="Freepik">
+              <a 
+                className="link" 
+                href="http://www.freepik.com" 
+                title="Freepik"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Freepik
               </a>
               ,{" "}
@@ -168,6 +174,8 @@ const About = () => {
                 className="link"
                 href="https://www.flaticon.com/authors/monkik"
                 title="monkik"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 monkik
               </a>{" "}
@@ -176,6 +184,8 @@ const About = () => {
                 className="link"
                 href="https://www.flaticon.com/"
                 title="Flaticon"
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 www.flaticon.com
               </a>{" "}

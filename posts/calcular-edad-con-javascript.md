@@ -2,8 +2,8 @@
 title: Calcular edad con Javascript
 date: "2018-09-27"
 tags:
-  - javascript
-ogImage: './calcular-edad-con-javascript.jpg'
+  - VanillaJS
+ogImage: './calcular-edad-con-javascript.png'
 description: 'Calculando la edad usando Javascript'
 ---
 
@@ -29,7 +29,7 @@ function getEdad(dateString) {
 
 Esta función se encuentra en el archivo [about.js](https://github.com/agustinmulet/agustinmuletblog/blob/master/src/pages/about.js) del código fuente de mi blog, vamos a analizarla de a poco
 
-Podemos ver en la primer línea que la función `getEdad` va a recibir una fecha en formato String en el parámetro `dateString`, la cual luego debemos convertir al tipo de dato [Date](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Date) (<- Es un link directo a Mozilla para que lo estudien 🤓) para poder utilizar las funciones y las bondades que tiene el tipo de dato Date. También nos guardamos en `hoy` la fecha del momento en que se corre el script para tener una referencia y poder realizar el cálculo
+Podemos ver en la primer línea que la función <inline-code>getEdad</inline-code> va a recibir una fecha en formato String en el parámetro <inline-code>dateString</inline-code>, la cual luego debemos convertir al tipo de dato [Date](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Date) (<- Es un link directo a Mozilla para que lo estudien 🤓) para poder utilizar las funciones y las bondades que tiene el tipo de dato Date. También nos guardamos en <inline-code>hoy</inline-code> la fecha del momento en que se corre el script para tener una referencia y poder realizar el cálculo
 
 ```javascript
 function getEdad(dateString) {
@@ -38,7 +38,7 @@ function getEdad(dateString) {
 /* [...] */
 ```
 
-Listo, ahora resta obtener los años, el de ahora (2018) y el de mi nacimiento (1986) y ya está, tenemos mi edad! Para esto usamos las bondades del tipo de dato Date (es un objeto en realidad, TODO en JS es un objeto) y su método `getFullYear()`
+Listo, ahora resta obtener los años, el de ahora (2018) y el de mi nacimiento (1986) y ya está, tenemos mi edad! Para esto usamos las bondades del tipo de dato Date (es un objeto en realidad, TODO en JS es un objeto) y su método <inline-code>getFullYear()</inline-code>
 
 ```javascript
 /* [...] */
@@ -59,10 +59,10 @@ Entonces deberíamos pensar cómo hacer con los meses, la idea es hacer lo mismo
 
 Bueno, ese if puede ser un poco complicado, vamos a analizar de a partes la lógica:
 
-- Con `diferenciaMeses < 0` chequeamos si estamos en algún mes anterior al pasado por parámetro. Faltaría ver el tema de los días, eso lo vemos en la otra parte de la condición de nuestro `if` con el operador OR `||` (si alguna de las condiciones se cumple, ingresamos)
-- `(diferenciaMeses === 0 && hoy.getDate() < fechaNacimiento.getDate())` Acá puede complicarse un poco más la cosa, nos fijamos si el mes actual es el mismo que el que recibimos por parámetro pero chequeamos además con el operador AND `&&` si el día que recibimos por parámetro es mayor que el día actual, usando el método `getDate()` y comparando
+- Con <inline-code>diferenciaMeses < 0</inline-code> chequeamos si estamos en algún mes anterior al pasado por parámetro. Faltaría ver el tema de los días, eso lo vemos en la otra parte de la condición de nuestro <inline-code>if</inline-code> con el operador OR <inline-code>||</inline-code> (si alguna de las condiciones se cumple, ingresamos)
+- <inline-code>(diferenciaMeses === 0 && hoy.getDate() < fechaNacimiento.getDate())</inline-code> Acá puede complicarse un poco más la cosa, nos fijamos si el mes actual es el mismo que el que recibimos por parámetro pero chequeamos además con el operador AND <inline-code>&&</inline-code> si el día que recibimos por parámetro es mayor que el día actual, usando el método <inline-code>getDate()</inline-code> y comparando
 
-Si alguna de las dos condiciones se cumple, deberíamos restar un año, ya que se cumpliría que estamos posicionados antes de la fecha de cumpleaños de esa persona. Esto lo hacemos dentro del `if` al hacer `edad--` y retornamos ese dato para poder luego guardarlo en alguna variable con `return edad`
+Si alguna de las dos condiciones se cumple, deberíamos restar un año, ya que se cumpliría que estamos posicionados antes de la fecha de cumpleaños de esa persona. Esto lo hacemos dentro del <inline-code>if</inline-code> al hacer <inline-code>edad--</inline-code> y retornamos ese dato para poder luego guardarlo en alguna variable con <inline-code>return edad</inline-code>
 
 ```javascript
 /* [...] */
