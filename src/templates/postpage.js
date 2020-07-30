@@ -25,7 +25,7 @@ const PostPage = ({ data }) => {
   if (!data) return null
   const { fields, frontmatter } = data.markdownRemark
   const { title, date, tags, ogImage, description } = frontmatter
-  return typeof window !== "undefined" && window ? (
+  return (
     <>
       <SEO
         title={title}
@@ -132,7 +132,7 @@ const PostPage = ({ data }) => {
         </Box>
       </Flex>
     </>
-  ) : null;
+  );
 }
 
 export default PostPage

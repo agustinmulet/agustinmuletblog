@@ -4,7 +4,7 @@ import { AiOutlineGithub, AiOutlineTwitter } from "react-icons/ai"
 import MySEO from "../components/myseo"
 
 const NotFoundPage = () => {
-  return typeof window !== "undefined" && window ? (
+  return (
     <>
       <MySEO pageTitle="404" />
       <Flex
@@ -42,7 +42,7 @@ const NotFoundPage = () => {
         </Stack>
       </Flex>
     </>
-  ) : null;
+  )
 }
 
 
