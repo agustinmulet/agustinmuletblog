@@ -132,7 +132,7 @@ const PostPage = ({ data }) => {
         </Box>
       </Flex>
     </>
-  );
+  )
 }
 
 export default PostPage
