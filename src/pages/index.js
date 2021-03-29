@@ -1,4 +1,4 @@
-import { Flex, Heading } from "@chakra-ui/core"
+import { Flex, Heading } from "@chakra-ui/react"
 import React from "react"
 import MySEO from "../components/myseo"
 
@@ -10,7 +10,7 @@ const IndexPage = () => {
         <Heading
           as="h1"
           w="100%"
-          fontSize={{ sm: "6xl", xs: "5xl" }}
+          fontSize="6xl"
           mx={["2rem", "2rem", "2rem", "2rem", 0]}
         >
           Hola!

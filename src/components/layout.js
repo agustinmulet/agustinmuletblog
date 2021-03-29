@@ -1,4 +1,4 @@
-import { Flex, Grid } from "@chakra-ui/core"
+import { Flex, Grid } from "@chakra-ui/react"
 import React from "react"
 import Head from "./head"
 import "./layout.css"

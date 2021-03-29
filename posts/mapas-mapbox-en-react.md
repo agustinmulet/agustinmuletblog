@@ -57,7 +57,7 @@ es lo que nos permite ir moviéndonos en el mapa, lo que nos da a entender que n
 ir cambiando con el tiempo, importemos entonces <inline-code>useState</inline-code> y creemos el viewport (yo lo voy a crear con las coordenadas de Buenos Aires, Argentina, ya que 
 ahí es donde vivo):
 
-```jsx
+```js
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import MapGL from 'react-map-gl';
@@ -109,7 +109,7 @@ Instalemos Babel como dependencia de desarrollo en nuestro proyecto:
 
 Y ahora creemos un archivo en la raíz de nuestro proyecto que se llame <inline-code>.babelrc</inline-code>, con la siguiente configuración:
 
-```md
+```json
 {
   "presets": [
     [

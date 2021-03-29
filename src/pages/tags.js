@@ -1,4 +1,4 @@
-import { Flex, Heading, Link } from "@chakra-ui/core"
+import { Flex, Heading, Link } from "@chakra-ui/react"
 import { graphql, Link as GatsbyLink, useStaticQuery } from "gatsby"
 import React from "react"
 import MySEO from "../components/myseo"
@@ -29,7 +29,7 @@ const TagsPage = () => {
         <Link
           as={GatsbyLink}
           to="/blog"
-          fontSize={{ md: "2xl", xs: "lg" }}
+          fontSize="2xl"
           fontWeight="500"
           _hover={{ textDecoration: "none" }}
           className="link"

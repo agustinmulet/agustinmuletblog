@@ -1,11 +1,11 @@
-import { Code, Heading, List, ListItem, Text } from "@chakra-ui/core"
+import { Code, Heading, List, ListItem, Text } from "@chakra-ui/react"
 import React from 'react'
 import CaraCruz from './caracruz'
 
 const H3Title = ({children}) => <Heading as="h3" size="md">{children}</Heading>
 const PostText = ({children}) => <Text my={4}>{children}</Text>
 const PostList = ({children}) => <List styleType="disc" my={4} pl={6} textAlign="start">{children}</List>
-const InlineCode = ({children}) => <Code variantColor="purple" px={1} py="px">{children}</Code>
+const InlineCode = ({children}) => <Code colorScheme="purple" px={1} py="px">{children}</Code>
 
 const components = { 
   h3: H3Title,

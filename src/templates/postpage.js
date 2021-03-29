@@ -1,4 +1,4 @@
-import { Badge, Box, Flex, Heading, Link, Stack, Text } from "@chakra-ui/core"
+import { Badge, Box, Flex, Heading, Link, Stack, Text } from "@chakra-ui/react"
 import { graphql, Link as GatsbyLink } from "gatsby"
 import React from "react"
 import { AiOutlineGithub, AiOutlineTwitter } from "react-icons/ai"
@@ -7,6 +7,11 @@ import rehypeReact from "rehype-react"
 import components from '../components/post-components'
 import TagList from "../components/taglist"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
+import { defineCustomElements as deckDeckGoHighlightElement } from '@deckdeckgo/highlight-code/dist/loader';
+
+import {Utterances} from '../components/utterances'
+
+deckDeckGoHighlightElement();
 
 const renderAst = new rehypeReact({
   createElement: React.createElement,
@@ -46,7 +51,7 @@ const PostPage = ({ data }) => {
         <Link
           as={GatsbyLink}
           to="/blog"
-          fontSize={{ md: "2xl", xs: "lg" }}
+          fontSize="2xl"
           fontWeight="500"
           _hover={{ textDecoration: "none" }}
           className="link"
@@ -68,7 +73,7 @@ const PostPage = ({ data }) => {
         </Heading>
       </Flex>
       <Badge
-        variantColor="green"
+        colorScheme="green"
         fontSize="md"
         borderRadius="lg"
         ml={3}
@@ -99,6 +104,7 @@ const PostPage = ({ data }) => {
           </Text>
           <hr />
         </Box>
+        <Utterances repo="agustinmulet/agustinmuletblog-comments" />
         <Box textAlign="center" justifyContent="center" alignContent="center">
           <Text fontWeight="bold">
             Si encontrás un error en el post, querés contactarme o hacerme una

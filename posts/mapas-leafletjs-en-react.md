@@ -26,7 +26,7 @@ principal de entrada de nuestro proyecto <inline-code>src/index.js</inline-code>
 Cambiemos eso usando la sintaxis más moderna de [React Fragments](https://reactjs.org/docs/fragments.html) para poder retornar más 
 elementos dentro de nuestro componente:
 
-```jsx
+```js
 const App = () => {
   return (
     <>
@@ -40,7 +40,7 @@ Ahora vayamos a la documentación de <inline-code>react-leaflet</inline-code>, o
 un ejemplo de un _Simple Marker con Popup_, pero el código en el ejemplo usa clases de JS y nosotros estamos usando funciones 🤔 
 Adaptemos ese código entonces a nuestras necesidades (yo vivo en Buenos Aires, Argentina, así que voy a usar esas coordenadas):
 
-```jsx
+```js
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'
 
 const App = () => {
@@ -74,7 +74,7 @@ bueno lograr que funcione jajaja 😛).
 Si lo notaron, una cosa que falta, además de ver _tiles_ de los mapas volando, son los estilos. Así que vamos a agregar en los imports 
 el CSS de leaflet y además es **necesario** que al <inline-code>Map</inline-code> le indiquemos una altura, en este caso podemos ponerle <inline-code>400px</inline-code>:
 
-```jsx
+```js
 //Agregamos el import
 import 'leaflet/dist/leaflet.css'
 
@@ -89,7 +89,7 @@ los íconos que se usan para los markers para luego configurar este Marker con t
 indicaremos) y listo. Piensen que <inline-code>react-leaflet</inline-code> sería un wrapper sobre <inline-code>leaflet</inline-code>, así que si configuramos el Marker de "base", 
 cuando lo use <inline-code>react-leaflet</inline-code> debería funcionar bien. **Bueno**, menos bla bla y más código:
 
-```jsx
+```js
 import { Marker as LeafletMarker, icon } from 'leaflet'
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png'
 import iconUrl from 'leaflet/dist/images/marker-icon.png'
@@ -118,7 +118,7 @@ proveedores de los mapas. **En algunos casos es posible que tengan que hacerse u
 a la url donde diga authToken o algo por el estilo**. Les dejo por ejemplo cómo usar los mapas Stamen Watercolor y de paso ven cómo 
 debería quedarles el archivo <inline-code>index.js</inline-code> en el siguiente código:
 
-```jsx
+```js
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet'

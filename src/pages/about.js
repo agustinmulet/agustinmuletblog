@@ -1,6 +1,6 @@
-import { Box, Code, Flex, Heading, Text } from "@chakra-ui/core"
+import { Box, Code, Flex, Heading, Text } from "@chakra-ui/react"
 import { graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import React from "react"
 import Icon from "../components/icon"
 import MySEO from "../components/myseo"
@@ -22,12 +22,10 @@ function getEdad(dateString) {
 
 const About = () => {
   const { file } = useStaticQuery(graphql`
-    query {
+    {
       file(relativePath: { eq: "Agus.png" }) {
         childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid_tracedSVG
-          }
+          gatsbyImageData(placeholder: BLURRED)
         }
       }
     }
@@ -42,12 +40,19 @@ const About = () => {
       <Flex
         direction="column"
         alignSelf="center"
-        maxW={{ md: "100vw", sm: "80vw", xs: "calc(100vw - 2rem)" }}
+        maxW="calc(100vw - 2rem)"
       >
         <Box size="xs" alignSelf="center" h="100%" borderRadius="lg" mb={5}>
-          <Img fluid={file.childImageSharp.fluid} alt="Agustin Mulet" />
+          <GatsbyImage
+            image={file.childImageSharp.gatsbyImageData}
+            alt="Agustin Mulet"
+          />
         </Box>
-        <Text fontSize="lg" textAlign="justify" textJustify="inter-word">
+        <Text
+          fontSize="lg"
+          textAlign="justify"
+          style={{ textJustify: "inter-word" }}
+        >
           {getEdad("1986/09/26 11:30:00")} años, recibido en Tecnicatura
           Universitaria en Programación de Sistemas. Actualmente me desempeño
           como Software Engineer en{" "}
@@ -61,36 +66,80 @@ const About = () => {
           </a>{" "}
           desde el 04 de Abril de 2019. En la facultad he realizado proyectos y
           estudiado utilizando lenguajes tales como{" "}
-          <Code variantColor="purple">C, C++, C#, Java, Javascript, HTML, CSS, PHP y SQL</Code>,
-          disfruto mucho de aprender cosas nuevas y estoy en constante
+          <Code colorScheme="purple">
+            C, C++, C#, Java, Javascript, HTML, CSS, PHP y SQL
+          </Code>
+          , disfruto mucho de aprender cosas nuevas y estoy en constante
           aprendizaje.
           <br />
-          Para asentar conocimientos y con la idea de compartir conocimiento es
-          que nació este blog, donde pretendo escribir material en español
-          (también en inglés de ser posible) propio y traducido, como si fuese
-          una especie de colección de contenido curado donde se van a citar las
-          fuentes.
+          Para asentar conocimientos y con la idea de compartirlo es que nació
+          este blog, donde pretendo escribir material en español (también en
+          inglés de ser posible) propio y traducido, como si fuese una especie
+          de colección de contenido curado donde se van a citar las fuentes.
         </Text>
         <Heading as="h3" fontSize="lg" textAlign="center" my={6}>
           Frameworks / bibliotecas / tecnologías que usé:
           <small> (Y uso)</small>
         </Heading>
 
-        <Flex flexWrap="wrap" justifyContent="space-evenly">
+        <Flex class="icons" flexWrap="wrap" justifyContent="space-evenly">
           <Icon
             icon={ICONS.ANGULAR}
             size={40}
             color="#DD0031"
-            text="AngularJS"
+            text="Angular (v1 & v2+)"
           />
           <Icon icon={ICONS.GATSBY} size={40} color="#663399" text="GatsbyJS" />
           <Icon icon={ICONS.GRAPHQL} size={40} color="#E10098" text="GraphQL" />
           <Icon icon={ICONS.REACT} size={40} color="#61DAFB" text="ReactJS" />
+          <Icon icon={ICONS.SVELTE} size={40} color="#FF3E00" text="Svelte" viewBox={24} />
           <Icon
             icon={ICONS.JAVASCRIPT}
             size={40}
             color="#F7DF1E"
             text="Javascript"
+          />
+          <Icon
+            icon={ICONS.NODEJS}
+            size={40}
+            color="#339933"
+            text="NodeJS"
+            viewBox={24}
+          />
+          <Icon
+            icon={ICONS.SWAGGER}
+            size={40}
+            color="#85EA2D"
+            text="Swagger"
+            viewBox={24}
+          />
+          <Icon
+            icon={ICONS.OPENAPI}
+            size={40}
+            color="#6BA539"
+            text="OpenAPI"
+            viewBox={24}
+          />
+          <Icon
+            icon={ICONS.SEQUELIZE}
+            size={40}
+            color="#03afef"
+            text="Sequelize ORM"
+            viewBox={512}
+          />
+          <Icon
+            icon={ICONS.POSTGRESQL}
+            size={40}
+            color="#336791"
+            text="PostgreSQL"
+            viewBox={24}
+          />
+          <Icon
+            icon={ICONS.PHP}
+            size={40}
+            color="#777BB4"
+            text="PHP"
+            viewBox={24}
           />
           <Icon icon={ICONS.CLANG} size={40} color="#3949AB" text="C" />
           <Icon icon={ICONS.CPP} size={40} color="#0075C0" text="C++" />
@@ -160,9 +209,9 @@ const About = () => {
           <Text mt={1} fontSize="xs">
             <small>
               Algunos de los íconos utilizados fueron hechos por{" "}
-              <a 
-                className="link" 
-                href="http://www.freepik.com" 
+              <a
+                className="link"
+                href="http://www.freepik.com"
                 title="Freepik"
                 target="_blank"
                 rel="noopener noreferrer"

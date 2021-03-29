@@ -1,4 +1,4 @@
-import { Flex, Heading, Link, Stack, Tag, TagLabel } from "@chakra-ui/core"
+import { Flex, Heading, Link, Stack, Tag, TagLabel } from "@chakra-ui/react"
 import { Link as GatsbyLink } from "gatsby"
 import kebabCase from "lodash/kebabCase"
 import React from "react"
@@ -6,10 +6,10 @@ import React from "react"
 const tagColor = {
   Angular: "red",
   Gatsby: "purple",
-  VanillaJS: "yellow",
+  Javascript: "yellow",
   React: "blue",
   LeafletJS: "green",
-  Mapbox: "blue"
+  Mapbox: "blue",
 }
 
 const TagList = ({ asLinks = false, isPost = false, tags = [] }) => {
@@ -29,13 +29,12 @@ const TagList = ({ asLinks = false, isPost = false, tags = [] }) => {
       <Stack isInline mt={3} spacing={6} flexWrap="wrap" mx={3}>
         {tags.map((tag) => (
           <Tag
-            fontSize="xl"
             rounded="full"
+            fontSize="xl"
             size={["xs", "sm", "lg", "2xl"]}
             px={3}
-            variantColor={tagColor[tag] || "teal"}
+            colorScheme={tagColor[tag] || "teal"}
             key={tag}
-            my={3}
           >
             <Link
               as={GatsbyLink}
@@ -56,7 +55,7 @@ const TagList = ({ asLinks = false, isPost = false, tags = [] }) => {
             rounded="full"
             fontSize={{ md: "sm", xl: "md" }}
             size={"md"}
-            variantColor={tagColor[tag] || "teal"}
+            colorScheme={tagColor[tag] || "teal"}
             key={tag}
           >
             <TagLabel>{tag}</TagLabel>

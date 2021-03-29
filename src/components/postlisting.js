@@ -7,7 +7,7 @@ import {
   Stack,
   Text,
   useColorMode
-} from "@chakra-ui/core"
+} from "@chakra-ui/react"
 import { Link as GatsbyLink } from "gatsby"
 import React from "react"
 import TagList from "../components/taglist"
@@ -51,7 +51,7 @@ const MyPost = ({ date, title, desc, tags, slug, colorMode, ...rest }) => {
       _hover={{ bg: colorMode === "dark" ? "teal.900" : "teal.200" }}
       {...rest}
     >
-      <Badge variantColor="green" borderRadius="lg" px={2} py={1}>
+      <Badge colorScheme="green" borderRadius="lg" px={2} py={1}>
         {date}
       </Badge>
       <Box mt={3}>

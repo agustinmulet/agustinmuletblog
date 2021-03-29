@@ -1,4 +1,5 @@
-import { Flex, Heading, IconButton, Link, useColorMode } from "@chakra-ui/core"
+import { Flex, Heading, IconButton, Link, useColorMode } from "@chakra-ui/react"
+import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 import { Link as GatsbyLink } from "gatsby"
 import React from "react"
 import Headroom from "react-headroom"
@@ -67,9 +68,9 @@ export default function Head() {
 
           <IconButton
             variant="ghost"
-            variantColor="gray"
+            colorScheme="gray"
             aria-label="Change to dark/light mode"
-            icon={colorMode === "light" ? "moon" : "sun"}
+            icon={colorMode === "light" ? <MoonIcon /> : <SunIcon />}
             onClick={toggleColorMode}
             borderRadius="100%"
             fontSize="xl"

@@ -1,4 +1,4 @@
-import { Flex, Heading, Link, Stack, Text } from "@chakra-ui/core"
+import { Flex, Heading, Link, Stack, Text } from "@chakra-ui/react"
 import React from "react"
 import { AiOutlineGithub, AiOutlineTwitter } from "react-icons/ai"
 import MySEO from "../components/myseo"

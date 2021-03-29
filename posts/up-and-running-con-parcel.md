@@ -128,7 +128,7 @@ usen para sus repositorios en Git.
 Creemos entonces un archivo con nombre <inline-code>.gitignore</inline-code> (sí, tiene un punto al principio) en la raíz de nuestro proyecto, debería 
 quedar a la misma altura que el <inline-code>package.json</inline-code> y adentro del archivo escribimos lo siguiente:
 
-```md
+```markdown
 #Carpetas con dependencias
 node_modules/
 

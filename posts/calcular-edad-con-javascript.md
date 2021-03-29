@@ -2,7 +2,7 @@
 title: Calcular edad con Javascript
 date: "2018-09-27"
 tags:
-  - VanillaJS
+  - Javascript
 ogImage: './calcular-edad-con-javascript.jpg'
 description: 'Calculando la edad usando Javascript'
 ---

@@ -10,10 +10,11 @@ module.exports = {
     twitterUsername: `@AgustinDMulet`,
   },
   plugins: [
+    `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-chakra-ui`,
+    `@chakra-ui/gatsby-plugin`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -54,12 +55,7 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
-          {
-            resolve: `gatsby-remark-shiki`,
-            options: {
-              theme: `Material-Theme-Palenight`,
-            },
-          },
+          `gatsby-remark-highlight-code`,
         ],
       },
     },
