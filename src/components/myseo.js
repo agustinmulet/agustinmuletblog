@@ -1,5 +1,5 @@
 import React from "react"
-import SEO from "react-seo-component"
+import Seo from "react-seo-component"
 import { useSiteMetadata } from "../hooks/useSiteMetadata"
 
 export default function MySEO({ pageTitle = "Blog" }) {
@@ -13,7 +13,7 @@ export default function MySEO({ pageTitle = "Blog" }) {
     description,
   } = useSiteMetadata()
   return (
-    <SEO
+    <Seo
       title={pageTitle}
       titleTemplate={title}
       titleSeparator={`|`}

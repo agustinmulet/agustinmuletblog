@@ -2,7 +2,7 @@ import { Badge, Box, Flex, Heading, Link, Stack, Text } from "@chakra-ui/react"
 import { graphql, Link as GatsbyLink } from "gatsby"
 import React from "react"
 import { AiOutlineGithub, AiOutlineTwitter } from "react-icons/ai"
-import SEO from "react-seo-component"
+import Seo from "react-seo-component"
 import rehypeReact from "rehype-react"
 import components from '../components/post-components'
 import TagList from "../components/taglist"
@@ -32,7 +32,7 @@ const PostPage = ({ data }) => {
   const { title, date, tags, ogImage, description } = frontmatter
   return (
     <>
-      <SEO
+      <Seo
         title={title}
         titleTemplate={"Blog"}
         titleSeparator={`|`}
