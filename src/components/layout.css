@@ -53,6 +53,17 @@ body {
   height: 90%;
 }
 
+.chakra-stack > span {
+  margin-top: var(--chakra-space-2) !important;
+  margin-bottom: var(--chakra-space-2) !important;
+}
+
+.deckgo-highlight-code-carbon {
+  overflow-wrap: break-word;
+  overflow-x: auto;
+  max-width: 95vw;
+}
+
 kbd {
   background-color: #eee;
   border-radius: 3px;

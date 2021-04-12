@@ -44,7 +44,7 @@ Authorization: Bearer -JWT token-
 
 Empecemos a analizar por partes cada línea:
 - <inline-code># POST User by id</inline-code> Con el _hashtag_ (o doble barra <inline-code>//</inline-code>) podemos escribir comentarios, es descriptivo para nosotros programadores así que pueden escribir lo que quieran u obviarlo.
-- <inline-code>POST http://localhost:5000/api/users/9428b6ef-9d37-4ed1-9caa-a622f3cfe74b HTTP/1.1</inline-code> Esta línea va a indicar, primero el [método HTTP](https://developer.mozilla.org/es/docs/Web/HTTP/Methods) de nuestra petición, luego la URL del endpoint al que queremos apuntar y por último el protocolo a utilizar (podemos obviarlo y va a utilizar HTTP/1.1 por defecto).
+- <inline-code>POST htt<span>p://localho</span>st:5000/api/users/9428b6ef-9d37-4ed1-9caa-a622f3cfe74b HTTP/1.1</inline-code> Esta línea va a indicar, primero el [método HTTP](https://developer.mozilla.org/es/docs/Web/HTTP/Methods) de nuestra petición, luego la URL del endpoint al que queremos apuntar y por último el protocolo a utilizar (podemos obviarlo y va a utilizar HTTP/1.1 por defecto).
 - <inline-code>Content-Type: application/json</inline-code> y <inline-code>Authorization: Bearer -JWT token-</inline-code> Corresponden a los [headers](https://developer.mozilla.org/es/docs/Web/HTTP/Headers) que vamos a enviar en nuestra petición, en donde dice *-JWT token-* debería ir el token de autenticación.
 - <inline-code>{ "name": "Agustin Mulet", "email": "agustin.mulet@gmail.com" }</inline-code> Luego, dejando un espacio después de los headers, tenemos el *body* en formato JSON. Esto sería en el caso en el que necesitemos enviar data al backend en nuestra petición (con un POST, PUT, DELETE, etc.)
 - <inline-code>###</inline-code> es para dividir las peticiones, si es la primera del archivo no es necesario, pero siempre recuerden ponerla entre petición y petición.
@@ -57,25 +57,25 @@ La forma más simple de utilizar las variables es, en el comienzo de nuestro arc
 Veamos un ejemplo:
 
 ```
-@base_URL = https://rickandmortyapi.com/api
+@baseURL = https://rickandmortyapi.com/api
 
 ###
 
-GET {{base_URL}}/character HTTP/1.1
+GET {{baseURL}}/character HTTP/1.1
 ```
 
-Y así es como ya empezamos a tener dinamismo y podemos, por ejemplo, tener variables <inline-code>@dev_URL</inline-code> y <inline-code>@prod_URL</inline-code> y si queremos probar endpoints en distintos ambientes, solamente cambiamos el uso de la variable entre dos llaves (tengan cuidado con probar cosas en prod 😝)
+Y así es como ya empezamos a tener dinamismo y podemos, por ejemplo, tener variables <inline-code>@devURL</inline-code> y <inline-code>@prodURL</inline-code> y si queremos probar endpoints en distintos ambientes, solamente cambiamos el uso de la variable entre dos llaves (tengan cuidado con probar cosas en prod 😝)
 
 Pero qué pasa si tenemos distintos archivos y necesitamos compartir variables? Hay diferentes maneras de resolver esto, una es declarar en un archivo de variables de entorno <inline-code>.env</inline-code> por ejemplo y definimos ahí nuestra variable:
 
 ```
-base_URL = https://rickandmortyapi.com/api
+baseURL = https://rickandmortyapi.com/api
 ```
 
 Luego para utilizar esta variable tenemos que anteponer al nombre de nuestra variable de entorno como palabra clave <inline-code>$dotenv</inline-code>, y su uso quedaría así:
 
 ```
-GET {{$dotenv base_URL}}/character HTTP/1.1
+GET {{$dotenv baseURL}}/character HTTP/1.1
 ```
 
 Me parece una forma simple pero hay otras que pueden ser hasta mejores (usando <inline-code>$processEnv</inline-code> por ejemplo) pero para eso pueden ver la [docu de la extensión](https://github.com/Huachao/vscode-restclient) que pueden aprender mucho más, como por ejemplo generar un token al hacer un login y guardarlo en una variable (ver [Request Variables](https://github.com/Huachao/vscode-restclient#request-variables)).

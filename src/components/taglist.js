@@ -1,4 +1,4 @@
-import { Flex, Heading, Link, Stack, Tag, TagLabel } from "@chakra-ui/react"
+import { Flex, Heading, Link, HStack, Tag, TagLabel } from "@chakra-ui/react"
 import { Link as GatsbyLink } from "gatsby"
 import kebabCase from "lodash/kebabCase"
 import React from "react"
@@ -26,30 +26,31 @@ const TagList = ({ asLinks = false, isPost = false, tags = [] }) => {
           Etiquetas:
         </Heading>
       )}
-      <Stack isInline mt={3} spacing={6} flexWrap="wrap" mx={3}>
+      <HStack isInline mt={3} spacing={4} flexWrap="wrap">
         {tags.map((tag) => (
           <Tag
             rounded="full"
-            fontSize="xl"
-            size={["xs", "sm", "lg", "2xl"]}
-            px={3}
+            fontSize="lg"
+            size="lg"
             colorScheme={tagColor[tag] || "teal"}
             key={tag}
+            ml={4}
           >
             <Link
               as={GatsbyLink}
               to={`/tags/${kebabCase(tag)}/`}
               _hover={{ textDecor: "none" }}
+              my={2}
             >
               {tag}
             </Link>
           </Tag>
         ))}
-      </Stack>
+      </HStack>
     </Flex>
   ) : (
     <Flex>
-      <Stack mt={2} isInline spacing={2}>
+      <HStack mt={2} isInline spacing={2}>
         {tags.map((tag) => (
           <Tag
             rounded="full"
@@ -61,7 +62,7 @@ const TagList = ({ asLinks = false, isPost = false, tags = [] }) => {
             <TagLabel>{tag}</TagLabel>
           </Tag>
         ))}
-      </Stack>
+      </HStack>
     </Flex>
   )
 }
