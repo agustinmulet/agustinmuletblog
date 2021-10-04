@@ -58,13 +58,13 @@ const About = () => {
           como Software Engineer en{" "}
           <a
             className="link"
-            href="https://www.cognizantsoftvision.com"
+            href="http://scvsoft.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Cognizant Softvision
+            SCVsoft
           </a>{" "}
-          desde el 04 de Abril de 2019. En la facultad he realizado proyectos y
+          desde el 01 de Julio de 2021. En la facultad he realizado proyectos y
           estudiado utilizando lenguajes tales como{" "}
           <Code colorScheme="purple">
             C, C++, C#, Java, Javascript, HTML, CSS, PHP y SQL
@@ -77,33 +77,59 @@ const About = () => {
           inglés de ser posible) propio y traducido, como si fuese una especie
           de colección de contenido curado donde se van a citar las fuentes.
         </Text>
-        <Heading as="h3" fontSize="lg" textAlign="center" my={6}>
-          Frameworks / bibliotecas / tecnologías que usé:
-          <small> (Y uso)</small>
+        <Heading as="h3" fontSize="lg" textAlign="center" my={3}>
+          Frameworks / bibliotecas / tecnologías que manejo:
         </Heading>
 
-        <Flex class="icons" flexWrap="wrap" justifyContent="space-evenly">
-          <Icon
-            icon={ICONS.ANGULAR}
-            size={40}
-            color="#DD0031"
-            text="Angular (v1 & v2+)"
-          />
-          <Icon icon={ICONS.GATSBY} size={40} color="#663399" text="GatsbyJS" />
-          <Icon icon={ICONS.GRAPHQL} size={40} color="#E10098" text="GraphQL" />
-          <Icon icon={ICONS.REACT} size={40} color="#61DAFB" text="ReactJS" />
-          <Icon icon={ICONS.SVELTE} size={40} color="#FF3E00" text="Svelte" viewBox={24} />
+        <Heading as="h4" fontSize="md" textAlign="center" my={5}>
+          Uso diario o con frecuencia suficiente para sentirme confiado:
+        </Heading>
+
+        <Flex className="icons" flexWrap="wrap" justifyContent="space-evenly">
           <Icon
             icon={ICONS.JAVASCRIPT}
             size={40}
             color="#F7DF1E"
             text="Javascript"
           />
+          <Icon icon={ICONS.REACT} size={40} color="#61DAFB" text="ReactJS" />
+          <Icon icon={ICONS.GATSBY} size={40} color="#663399" text="GatsbyJS" />
           <Icon
             icon={ICONS.NODEJS}
             size={40}
             color="#339933"
             text="NodeJS"
+            viewBox={24}
+          />
+          <Icon icon={ICONS.GRAPHQL} size={40} color="#E10098" text="GraphQL" />
+          <Icon icon={ICONS.RUBY} size={40} viewBox={24} color="#CC342D" text="Ruby" />
+          <Icon icon={ICONS.RAILS} size={40} viewBox={24} color="#CC0000" text="Ruby on Rails" />
+          <Icon
+            icon={ICONS.POSTGRESQL}
+            size={40}
+            color="#336791"
+            text="PostgreSQL"
+            viewBox={24}
+          />
+        </Flex>
+        
+        <Heading as="h4" fontSize="md" textAlign="center" my={5}>
+          En aprendizaje o usados en menor medida:
+        </Heading>
+
+        <Flex className="icons" flexWrap="wrap" justifyContent="space-evenly">
+          <Icon
+            icon={ICONS.ANGULAR}
+            size={40}
+            color="#DD0031"
+            text="Angular v9"
+          />
+          <Icon icon={ICONS.SVELTE} size={40} color="#FF3E00" text="Svelte" viewBox={24} />
+          <Icon
+            icon={ICONS.PHP}
+            size={40}
+            color="#777BB4"
+            text="PHP"
             viewBox={24}
           />
           <Icon
@@ -126,20 +152,6 @@ const About = () => {
             color="#03afef"
             text="Sequelize ORM"
             viewBox={512}
-          />
-          <Icon
-            icon={ICONS.POSTGRESQL}
-            size={40}
-            color="#336791"
-            text="PostgreSQL"
-            viewBox={24}
-          />
-          <Icon
-            icon={ICONS.PHP}
-            size={40}
-            color="#777BB4"
-            text="PHP"
-            viewBox={24}
           />
           <Icon icon={ICONS.CLANG} size={40} color="#3949AB" text="C" />
           <Icon icon={ICONS.CPP} size={40} color="#0075C0" text="C++" />
